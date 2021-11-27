@@ -1,8 +1,8 @@
 .tracker--panel--container {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 10%;
+  top: 36%;
+  transform: translateY(-36%);
+  right: 12%;
   height: 30%;
   min-width: 120px;
   display: flex;

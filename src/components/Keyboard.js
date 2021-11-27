@@ -1,31 +1,13 @@
 import "../css/Keyboard.css";
 import useEventListener from "@use-it/event-listener";
 import { useState } from "react";
+import keys from "./keys";
 
-export default function Keyboard() {
-  const keys = [
-    {
-      keys: ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
-      className: "keyboard--top--row",
-    },
-    {
-      keys: ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
-      className: "keyboard--mid--row",
-    },
-    {
-      keys: ["Z", "X", "C", "V", "B", "N", "M", ",", "."],
-      className: "keyboard--bot--row",
-    },
-    {
-      keys: ["Spacebar"],
-      className: "spacebar--row",
-    },
-  ];
-
+export default function Keyboard({ displayedText }) {
   function handler(event) {
     console.log(event.key);
   }
-
+  const textArray = displayedText.toLowerCase().split("");
   const keyboard = keys.map((row, index) => {
     return (
       <div className={row.className} key={index}>
