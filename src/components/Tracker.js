@@ -1,3 +1,9 @@
+import "../css/Tracker.css";
 export default function Tracker() {
-  return <p>Tracker panel</p>;
+  return (
+    <div className="tracker--panel--container">
+      <div className="speed--panel">Speed</div>
+      <div className="accuracy--panel">Accuracy</div>
+    </div>
+  );
 }

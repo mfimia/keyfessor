@@ -1,0 +1,22 @@
+.tracker--panel--container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10%;
+  height: 30%;
+  min-width: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.speed--panel,
+.accuracy--panel {
+  border: 1px solid red;
+  border-radius: 10px;
+  height: 25%;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+}

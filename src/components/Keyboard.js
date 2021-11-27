@@ -43,7 +43,7 @@ export default function Keyboard() {
       </div>
     );
   });
-  console.log(keyboard);
+
   useEventListener("keydown", handler);
 
   return <div className="keyboard--container">{keyboard}</div>;
