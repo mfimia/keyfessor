@@ -1,4 +1,6 @@
 import "../css/Keyboard.css";
+import useEventListener from "@use-it/event-listener";
+import { useState } from "react";
 
 export default function Keyboard() {
   const keys = [
@@ -16,12 +18,20 @@ export default function Keyboard() {
     },
   ];
 
+  function handler(event) {
+    console.log(event.key);
+  }
+
   const keyboard = keys.map((row, index) => {
     return (
       <div className={row.className} key={index}>
         {row.keys.map((rowKey, keyIndex) => {
           return (
-            <span className="keyboard--key" key={keyIndex}>
+            <span
+              id={rowKey.toLowerCase()}
+              className="keyboard--key"
+              key={keyIndex}
+            >
               {rowKey}
             </span>
           );
@@ -29,6 +39,8 @@ export default function Keyboard() {
       </div>
     );
   });
+  console.log(keyboard);
+  useEventListener("keydown", handler);
 
   return <div className="keyboard--container">{keyboard}</div>;
 }
