@@ -13,8 +13,12 @@ export default function Keyboard() {
       className: "keyboard--mid--row",
     },
     {
-      keys: ["Z", "X", "C", "V", "B", "N", "M"],
+      keys: ["Z", "X", "C", "V", "B", "N", "M", ",", "."],
       className: "keyboard--bot--row",
+    },
+    {
+      keys: ["Spacebar"],
+      className: "spacebar--row",
     },
   ];
 
@@ -29,7 +33,7 @@ export default function Keyboard() {
           return (
             <span
               id={rowKey.toLowerCase()}
-              className="keyboard--key"
+              className={rowKey === "Spacebar" ? "spacebar" : "keyboard--key"}
               key={keyIndex}
             >
               {rowKey}
