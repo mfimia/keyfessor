@@ -1,4 +1,5 @@
 import "../css/Keyboard.css";
+// import { useEffect } from "react";
 export default function Keyboard() {
   const topRow = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
   const topRowKeys = topRow.map((key, index) => (
@@ -18,6 +19,16 @@ export default function Keyboard() {
       {key}
     </span>
   ));
+
+  //   useEffect(() => {
+  //     const keys = document.querySelectorAll(".keyboard--key");
+  //     keys.forEach((key) => {
+  //       key.addEventListener("keydown", () => {
+  //         console.log(key);
+  //       });
+  //     });
+  //   });
+
   return (
     <div className="keyboard--container">
       <div className="keyboard--top--row">{topRowKeys}</div>

@@ -1,8 +1,9 @@
 .keyboard--key {
   display: inline-block;
   padding: 10px;
-  border: 1px solid black;
+  border: medium solid black;
   margin: 2px;
+  border-radius: 5px;
 }
 
 .keyboard--top--row {
@@ -25,5 +26,5 @@
   position: relative;
   border: 1px solid red;
   height: 136px;
-  width: 70%;
+  min-width: 70%;
 }
