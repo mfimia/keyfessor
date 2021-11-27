@@ -1,0 +1,29 @@
+.keyboard--key {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid black;
+  margin: 2px;
+}
+
+.keyboard--top--row {
+  position: absolute;
+  top: 0;
+}
+.keyboard--mid--row {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 6%;
+}
+.keyboard--bot--row {
+  position: absolute;
+  bottom: 0;
+  left: 12%;
+}
+
+.keyboard--container {
+  position: relative;
+  border: 1px solid red;
+  height: 136px;
+  width: 70%;
+}
