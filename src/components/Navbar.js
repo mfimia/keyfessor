@@ -1,4 +1,9 @@
 import "../css/Navbar.css";
+import PlayButton from './PlayButton';
+
+
 export default function Navbar() {
-  return <nav>Hi I am a navbar</nav>;
+  return <nav>
+    <PlayButton />
+  </nav>;
 }
