@@ -1,0 +1,25 @@
+import useEventListener from "@use-it/event-listener";
+import { useState } from "react";
+
+const src = "hey whats up";
+const strArr = src.split("");
+export default function App() {
+  const [latestKey, setLatestKey] = useState("");
+  const [stringIndex, setStringIndex] = useState(0);
+
+  function handler({ key }) {
+    setLatestKey(String(key));
+    console.log(String(key), strArr[stringIndex]);
+    if (String(key) === strArr[stringIndex]) {
+      console.log("GOOD");
+      setStringIndex((p) => p + 1);
+    } else {
+      console.log("BAD");
+    }
+  }
+
+  // custom react hook
+  useEventListener("keydown", handler);
+
+  return <span>{latestKey}</span>;
+}
