@@ -10,6 +10,18 @@
   font-weight: 500;
 }
 
+.active-key__correct {
+  border-bottom: green;
+  box-shadow: 0 0 1rem green;
+  transform: scale(1.1);
+}
+
+.active-key__wrong {
+  border-bottom: red;
+  box-shadow: 0 0 1rem red;
+  transform: scale(1.1);
+}
+
 .keyboard--top--row {
   position: absolute;
   top: 0;
