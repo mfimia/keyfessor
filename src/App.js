@@ -1,6 +1,13 @@
 import React from "react";
 import "./main.css";
+import Navbar from "./components/Navbar";
+import Main from "./components/Main";
 
 export default function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <div className="App">
+      <Navbar />
+      <Main />
+    </div>
+  );
 }
