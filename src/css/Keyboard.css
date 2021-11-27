@@ -14,17 +14,18 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 6%;
 }
 .keyboard--bot--row {
   position: absolute;
   bottom: 0;
-  left: 12%;
 }
 
 .keyboard--container {
-  position: relative;
+  align-items: center;
   border: 1px solid red;
+  display: flex;
   height: 136px;
+  justify-content: center;
   min-width: 70%;
+  position: relative;
 }
