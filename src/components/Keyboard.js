@@ -20,15 +20,6 @@ export default function Keyboard() {
     </span>
   ));
 
-  //   useEffect(() => {
-  //     const keys = document.querySelectorAll(".keyboard--key");
-  //     keys.forEach((key) => {
-  //       key.addEventListener("keydown", () => {
-  //         console.log(key);
-  //       });
-  //     });
-  //   });
-
   return (
     <div className="keyboard--container">
       <div className="keyboard--top--row">{topRowKeys}</div>
@@ -37,3 +28,12 @@ export default function Keyboard() {
     </div>
   );
 }
+
+//   useEffect(() => {
+//     const keys = document.querySelectorAll(".keyboard--key");
+//     keys.forEach((key) => {
+//       key.addEventListener("keydown", () => {
+//         console.log(key);
+//       });
+//     });
+//   });
