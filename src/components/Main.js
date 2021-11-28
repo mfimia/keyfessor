@@ -1,4 +1,5 @@
 import "../css/Text.css";
+import Text from "./Text";
 import TypingPanel from "./TypingPanel";
 import textArray from "./textData";
 import { useState, useEffect } from "react";
@@ -13,18 +14,6 @@ export default function Main() {
     completedWords: [],
     errors: 0,
   });
-  const dynamicText = displayedText.split("").map((letter, index) => {
-    return (
-      <span
-        key={index}
-        className={
-          index === currentLetter ? "current--letter" : "normal--letter"
-        }
-      >
-        {letter}
-      </span>
-    );
-  });
 
   const advanceText = () => {
     setCurrentLetter((prev) => prev + 1);
@@ -32,9 +21,7 @@ export default function Main() {
 
   return (
     <>
-      <div className="text">
-        <p>{dynamicText}</p>
-      </div>
+      <Text currentLetter={currentLetter} displayedText={displayedText} />
       <TypingPanel
         displayedText={displayedText}
         wordsArray={wordsArray}
