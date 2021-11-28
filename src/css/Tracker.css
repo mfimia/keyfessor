@@ -20,3 +20,9 @@
   text-align: center;
   font-weight: 600;
 }
+
+.word--count {
+  margin: 10px;
+  display: inline-block;
+  font-size: x-large;
+}

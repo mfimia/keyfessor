@@ -1,11 +1,15 @@
 import Keyboard from "./Keyboard";
 import Tracker from "./Tracker";
 
-export default function TypingPanel({ displayedText }) {
+export default function TypingPanel({ displayedText, wordsArray, moveText }) {
   return (
     <>
-      <Keyboard displayedText={displayedText} />
-      <Tracker />
+      <Keyboard
+        moveText={moveText}
+        displayedText={displayedText}
+        wordsArray={wordsArray}
+      />
+      <Tracker displayedText={displayedText} wordsArray={wordsArray} />
     </>
   );
 }
