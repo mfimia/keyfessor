@@ -5,7 +5,7 @@ import keys from "./keys";
 import sound from "../assets/Mechanical-Keyboard-single-button-presses-4.mp3";
 const keySound = new Audio(sound);
 
-export default function Keyboard({ wordsArray, moveText }) {
+export default function Keyboard({ lettersArray, moveText }) {
   function highlightPressedKey(event) {
     const pressedLetter = event.key === " " ? "spacebar" : event.key;
     const activeKey = document.getElementById(pressedLetter);

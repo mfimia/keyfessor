@@ -1,4 +1,3 @@
-import "../css/Text.css";
 import Text from "./Text";
 import TypingPanel from "./TypingPanel";
 import textArray from "./textData";
@@ -8,10 +7,10 @@ export default function Main() {
   const randomNumber = Math.floor(Math.random() * textArray.length);
   const [displayedText, setDisplayedText] = useState(textArray[randomNumber]);
   const [currentLetter, setCurrentLetter] = useState(0);
-  const [wordsArray, setWordsArray] = useState({
-    totalWords: displayedText.toLowerCase().split(" ").length,
-    remainingWords: displayedText.toLowerCase().split(" "),
-    completedWords: [],
+  const [lettersArray, setLettersArray] = useState({
+    totalLetters: displayedText.toLowerCase().split("").length,
+    remainingLetters: displayedText.toLowerCase().split(""),
+    completedLetters: [],
     errors: 0,
   });
 
@@ -24,8 +23,9 @@ export default function Main() {
       <Text currentLetter={currentLetter} displayedText={displayedText} />
       <TypingPanel
         displayedText={displayedText}
-        wordsArray={wordsArray}
+        lettersArray={lettersArray}
         moveText={advanceText}
+        currentLetter={currentLetter}
       />
     </>
   );
