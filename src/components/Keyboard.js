@@ -2,7 +2,10 @@ import "../css/Keyboard.css";
 import useEventListener from "@use-it/event-listener";
 import keys from "./keys";
 import sound from "../assets/Mechanical-Keyboard-single-button-presses-4.mp3";
+import error from "../assets/mixkit-electric-fence-buzzing-2967.wav";
 const keySound = new Audio(sound);
+const errorSound = new Audio(error);
+errorSound.volume = 0.5;
 
 export default function Keyboard({
   lettersArray,
@@ -14,18 +17,36 @@ export default function Keyboard({
     const pressedLetter = event.key === " " ? "spacebar" : event.key;
     const activeKey = document.getElementById(pressedLetter);
     if (activeKey) {
-      if (pressedLetter === "spacebar") {
+      if (
+        pressedLetter === "spacebar" &&
         lettersArray.remainingLetters[currentLetter] === " "
-          ? advanceText()
-          : addError();
-      } else if (pressedLetter !== "spacebar") {
+      ) {
+        keySound.currentTime = 0.12;
+        keySound.play();
+        activeKey.classList.add("active-key__correct");
+        advanceText();
+      } else if (
+        pressedLetter === "spacebar" &&
+        lettersArray.remainingLetters[currentLetter] !== " "
+      ) {
+        errorSound.currentTime = 0.12;
+        errorSound.play();
+        activeKey.classList.add("active-key__wrong");
+        addError();
+      } else if (
+        pressedLetter !== "spacebar" &&
         activeKey.id === lettersArray.remainingLetters[currentLetter]
-          ? advanceText()
-          : addError();
+      ) {
+        keySound.currentTime = 0.12;
+        keySound.play();
+        activeKey.classList.add("active-key__correct");
+        advanceText();
+      } else {
+        errorSound.currentTime = 0.12;
+        errorSound.play();
+        activeKey.classList.add("active-key__wrong");
+        addError();
       }
-      keySound.currentTime = 0.12;
-      keySound.play();
-      activeKey.classList.add("active-key__correct");
     } else {
       return;
     }
@@ -35,7 +56,8 @@ export default function Keyboard({
     const pressedLetter = event.key === " " ? "spacebar" : event.key;
     const activeKey = document.getElementById(pressedLetter);
     if (activeKey) {
-      activeKey.classList.remove("active-key__correct");
+      activeKey.classList.remove("active-key__correct") ||
+        activeKey.classList.remove("active-key__wrong");
     } else {
       return;
     }
