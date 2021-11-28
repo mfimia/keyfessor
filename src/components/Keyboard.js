@@ -10,12 +10,10 @@ export default function Keyboard({
   currentLetter,
   addError,
 }) {
-  console.log(lettersArray.remainingLetters[currentLetter]);
   function highlightPressedKey(event) {
     const pressedLetter = event.key === " " ? "spacebar" : event.key;
     const activeKey = document.getElementById(pressedLetter);
     if (activeKey) {
-      console.log(pressedLetter);
       if (pressedLetter === "spacebar") {
         lettersArray.remainingLetters[currentLetter] === " "
           ? advanceText()
