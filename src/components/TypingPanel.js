@@ -4,21 +4,19 @@ import Tracker from "./Tracker";
 export default function TypingPanel({
   displayedText,
   lettersArray,
-  moveText,
+  advanceText,
   currentLetter,
+  addError,
 }) {
   return (
     <>
       <Keyboard
-        moveText={moveText}
-        displayedText={displayedText}
-        lettersArray={lettersArray}
-      />
-      <Tracker
-        displayedText={displayedText}
+        advanceText={advanceText}
         lettersArray={lettersArray}
         currentLetter={currentLetter}
+        addError={addError}
       />
+      <Tracker lettersArray={lettersArray} currentLetter={currentLetter} />
     </>
   );
 }

@@ -18,14 +18,24 @@ export default function Main() {
     setCurrentLetter((prev) => prev + 1);
   };
 
+  const addError = () => {
+    setLettersArray((prev) => {
+      return {
+        ...prev,
+        errors: prev.errors + 1,
+      };
+    });
+  };
+
   return (
     <>
       <Text currentLetter={currentLetter} displayedText={displayedText} />
       <TypingPanel
         displayedText={displayedText}
         lettersArray={lettersArray}
-        moveText={advanceText}
+        advanceText={advanceText}
         currentLetter={currentLetter}
+        addError={addError}
       />
     </>
   );
