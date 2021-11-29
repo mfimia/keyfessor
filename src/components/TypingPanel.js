@@ -1,7 +1,6 @@
 import Keyboard from "./Keyboard";
 import Tracker from "./Tracker";
 import { StopWatch } from "./StopWatch";
-import { useStopwatch } from "./timerHook";
 
 export default function TypingPanel({
   lettersArray,
@@ -22,7 +21,12 @@ export default function TypingPanel({
         handleStartTimer={handleStartTimer}
       />
       <StopWatch elapsedTime={elapsedTime} laps={laps} />
-      <Tracker lettersArray={lettersArray} currentLetter={currentLetter} />
+      <Tracker
+        lettersArray={lettersArray}
+        currentLetter={currentLetter}
+        laps={laps}
+        elapsedTime={elapsedTime}
+      />
     </>
   );
 }
