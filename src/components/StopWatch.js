@@ -13,7 +13,7 @@ export const StopWatch = ({ elapsedTime, laps }) => {
   return (
     <>
       <div className="stopwatch">{elapsedTime}</div>
-      {laps.length != 0 && (
+      {laps.length !== 0 && (
         <fieldset className="stopwatch--results">{timeResults}</fieldset>
       )}
     </>
