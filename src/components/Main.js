@@ -32,13 +32,14 @@ export default function Main() {
     resetTimer,
   } = useStopwatch();
 
+  // We can probably change this function to Typing Panel with a useEffect hook
   const averageLengthWord =
     lettersArray.totalLetters /
     lettersArray.remainingLetters.join("").split(" ").length;
   const minutes = elapsedTime / 60;
   const wordsPerMinute =
     Math.floor(currentLetter / averageLengthWord / minutes) || 0;
-
+  // This one too
   const accuracy = Math.floor(
     100 - (lettersArray.errors / lettersArray.totalLetters) * 100
   );
@@ -60,6 +61,8 @@ export default function Main() {
         currentText: previousText.currentText + 1,
       };
     });
+    // Some of this logic can be moved so we don't have to calculate everything on this component
+    // We can use a useeffect hook that listents to "displayedText.currentText"
     if (!isRunning) stopTimer();
     addLap(wordsPerMinute, accuracy);
     resetTimer();
