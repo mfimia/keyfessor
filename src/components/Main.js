@@ -2,6 +2,7 @@ import Text from "./Text";
 import TypingPanel from "./TypingPanel";
 import textArray from "./textData";
 import { useState } from "react";
+import { useStopwatch } from "./timerHook";
 let textNumber = 0;
 
 export default function Main() {
@@ -21,6 +22,20 @@ export default function Main() {
     errors: 0,
   });
 
+  const {
+    isRunning,
+    addLap,
+    stopTimer,
+    laps,
+    elapsedTime,
+    startTimer,
+    resetTimer,
+  } = useStopwatch();
+
+  const handleStartTimer = () => {
+    if (!isRunning) startTimer();
+  };
+
   const advanceText = () => {
     setCurrentLetter((prev) => {
       return prev === lettersArray.totalLetters - 1 ? newText() : prev + 1;
@@ -34,6 +49,9 @@ export default function Main() {
         currentText: previousText.currentText + 1,
       };
     });
+    if (!isRunning) stopTimer();
+    addLap();
+    resetTimer();
     setCurrentLetter(0);
     newArray();
   };
@@ -74,6 +92,9 @@ export default function Main() {
         advanceText={advanceText}
         currentLetter={currentLetter}
         addError={addError}
+        handleStartTimer={handleStartTimer}
+        elapsedTime={elapsedTime}
+        laps={laps}
       />
     </>
   );

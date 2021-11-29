@@ -30,12 +30,10 @@ export const useStopwatch = () => {
   const handleReset = () => {
     setIsRunning(false);
     setElapsedTime(0);
-    setLaps([]);
   };
 
   const handleAddLap = () => {
-    const prevTotal = laps.reduce((acc, curr) => acc + curr, 0);
-    isRunning && setLaps([elapsedTime - prevTotal, ...laps]);
+    isRunning && setLaps([...laps, elapsedTime]);
   };
 
   return {

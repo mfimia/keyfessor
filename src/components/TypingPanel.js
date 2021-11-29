@@ -8,33 +8,10 @@ export default function TypingPanel({
   advanceText,
   currentLetter,
   addError,
+  elapsedTime,
+  laps,
+  handleStartTimer,
 }) {
-  const {
-    laps,
-    addLap,
-    isRunning,
-    elapsedTime,
-    startTimer,
-    stopTimer,
-    resetTimer,
-  } = useStopwatch();
-
-  const handleStartTimer = () => {
-    if (!isRunning) startTimer();
-  };
-
-  const handleStopTimer = () => {
-    if (isRunning) stopTimer();
-  };
-
-  const handleResetTimer = () => {
-    resetTimer();
-  };
-
-  const handleAddLap = () => {
-    addLap();
-  };
-
   return (
     <>
       <Keyboard
