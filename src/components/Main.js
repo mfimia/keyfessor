@@ -21,6 +21,12 @@ export default function Main() {
     completedLetters: [],
     errors: 0,
   });
+  // const [speed, setSpeed] = useState([]);
+  // const handleSetSpeed = (wpm) => {
+  //   setSpeed((prev) => {
+  //     return [...prev, wpm];
+  //   });
+  // };
 
   const {
     isRunning,
@@ -95,6 +101,7 @@ export default function Main() {
         handleStartTimer={handleStartTimer}
         elapsedTime={elapsedTime}
         laps={laps}
+        // handleSetSpeed={handleSetSpeed}
       />
     </>
   );

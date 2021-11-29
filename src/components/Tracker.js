@@ -2,18 +2,11 @@ import "../css/Tracker.css";
 export default function Tracker({
   lettersArray,
   currentLetter,
-  laps,
-  elapsedTime,
+  wordsPerMinute,
 }) {
   const accuracy = Math.floor(
     100 - (lettersArray.errors / lettersArray.totalLetters) * 100
   );
-  const averageLengthWord =
-    lettersArray.totalLetters /
-    lettersArray.remainingLetters.join("").split(" ").length;
-  const minutes = elapsedTime / 60;
-  const wordsPerMinute =
-    Math.floor(currentLetter / averageLengthWord / minutes) || 0;
   return (
     <div className="tracker--panel--container">
       <div className="speed--panel">
@@ -24,7 +17,7 @@ export default function Tracker({
       </div>
       <div className="speed--panel">
         Speed: <br />
-        <span className="panel--metric">{wordsPerMinute} wpm</span>
+        <span className="panel--metric">{wordsPerMinute} WPM</span>
       </div>
       <div className="accuracy--panel">
         Accuracy: <br />

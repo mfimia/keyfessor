@@ -2,7 +2,7 @@
   position: absolute;
   top: 36%;
   transform: translateY(-36%);
-  right: 12%;
+  right: 8%;
   height: 30%;
   min-width: 120px;
   display: flex;
@@ -13,7 +13,6 @@
 
 .speed--panel,
 .accuracy--panel {
-  border: 1px solid red;
   border-radius: 10px;
   height: 25%;
   width: 100%;

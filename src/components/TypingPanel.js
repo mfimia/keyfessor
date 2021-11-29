@@ -11,6 +11,12 @@ export default function TypingPanel({
   laps,
   handleStartTimer,
 }) {
+  const averageLengthWord =
+    lettersArray.totalLetters /
+    lettersArray.remainingLetters.join("").split(" ").length;
+  const minutes = elapsedTime / 60;
+  const wordsPerMinute =
+    Math.floor(currentLetter / averageLengthWord / minutes) || 0;
   return (
     <>
       <Keyboard
@@ -20,12 +26,15 @@ export default function TypingPanel({
         addError={addError}
         handleStartTimer={handleStartTimer}
       />
-      <StopWatch elapsedTime={elapsedTime} laps={laps} />
+      <StopWatch
+        elapsedTime={elapsedTime}
+        laps={laps}
+        wordsPerMinute={wordsPerMinute}
+      />
       <Tracker
         lettersArray={lettersArray}
         currentLetter={currentLetter}
-        laps={laps}
-        elapsedTime={elapsedTime}
+        wordsPerMinute={wordsPerMinute}
       />
     </>
   );
