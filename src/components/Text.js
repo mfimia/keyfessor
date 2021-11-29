@@ -6,7 +6,7 @@ export default function Text({ displayedText, currentLetter }) {
       <span
         key={index}
         className={
-          index === currentLetter ? "current--letter" : "normal--letter"
+          index >= currentLetter ? "remaining--letter" : "previous--letter"
         }
       >
         {letter}

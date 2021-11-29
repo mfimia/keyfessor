@@ -13,8 +13,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 body {
   font-family: "Roboto", sans-serif;
+  background-color: var(--primary-color);
 }

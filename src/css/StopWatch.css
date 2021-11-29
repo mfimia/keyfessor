@@ -1,7 +1,25 @@
 .stopwatch {
   position: absolute;
-  top: 3%;
-  right: 5%;
+  top: 6%;
+  right: 10%;
+  font-size: xx-large;
+  background-color: var(--primary-color);
+  font-weight: 300;
+}
+
+.stopwatch--results {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: 3%;
+  top: 20%;
   font-size: x-large;
-  background-color: white;
+  padding: 20px;
+  box-shadow: 0px 2.98256px 7.4564px var(--dark-shadow);
+  border: none;
+}
+
+.stopwatch--lap {
+  padding: 5px;
+  font-weight: 300;
 }

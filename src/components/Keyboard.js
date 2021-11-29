@@ -57,7 +57,7 @@ export default function Keyboard({
               className={rowKey === "Spacebar" ? "spacebar" : "keyboard--key"}
               key={keyIndex}
             >
-              {rowKey}
+              {rowKey === "Spacebar" ? "-" : rowKey}
             </span>
           );
         })}

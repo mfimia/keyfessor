@@ -11,7 +11,10 @@
   line-height: 1.5;
 }
 
-.current--letter {
-  text-decoration: underline;
-  text-decoration-color: blue;
+.remaining--letter {
+  color: var(--light-text);
+}
+
+.previous--letter {
+  color: var(--dark-text);
 }
