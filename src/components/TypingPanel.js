@@ -10,13 +10,9 @@ export default function TypingPanel({
   elapsedTime,
   laps,
   handleStartTimer,
+  wordsPerMinute,
+  accuracy,
 }) {
-  const averageLengthWord =
-    lettersArray.totalLetters /
-    lettersArray.remainingLetters.join("").split(" ").length;
-  const minutes = elapsedTime / 60;
-  const wordsPerMinute =
-    Math.floor(currentLetter / averageLengthWord / minutes) || 0;
   return (
     <>
       <Keyboard
@@ -35,6 +31,7 @@ export default function TypingPanel({
         lettersArray={lettersArray}
         currentLetter={currentLetter}
         wordsPerMinute={wordsPerMinute}
+        accuracy={accuracy}
       />
     </>
   );

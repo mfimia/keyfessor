@@ -32,14 +32,15 @@ export const useStopwatch = () => {
     setElapsedTime(0);
   };
 
-  const handleAddLap = () => {
-    isRunning && setLaps([...laps, elapsedTime]);
+  const handleAddLap = (wpm, acc) => {
+    isRunning &&
+      setLaps([...laps, { time: elapsedTime, speed: wpm, accuracy: acc }]);
   };
 
   return {
     elapsedTime: elapsedTime.toFixed(1),
     laps,
-    addLap: () => handleAddLap(),
+    addLap: (wpm, acc) => handleAddLap(wpm, acc),
     resetTimer: () => handleReset(),
     startTimer: () => setIsRunning(true),
     stopTimer: () => setIsRunning(false),

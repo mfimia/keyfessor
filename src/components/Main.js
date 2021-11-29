@@ -21,12 +21,6 @@ export default function Main() {
     completedLetters: [],
     errors: 0,
   });
-  // const [speed, setSpeed] = useState([]);
-  // const handleSetSpeed = (wpm) => {
-  //   setSpeed((prev) => {
-  //     return [...prev, wpm];
-  //   });
-  // };
 
   const {
     isRunning,
@@ -37,6 +31,17 @@ export default function Main() {
     startTimer,
     resetTimer,
   } = useStopwatch();
+
+  const averageLengthWord =
+    lettersArray.totalLetters /
+    lettersArray.remainingLetters.join("").split(" ").length;
+  const minutes = elapsedTime / 60;
+  const wordsPerMinute =
+    Math.floor(currentLetter / averageLengthWord / minutes) || 0;
+
+  const accuracy = Math.floor(
+    100 - (lettersArray.errors / lettersArray.totalLetters) * 100
+  );
 
   const handleStartTimer = () => {
     if (!isRunning) startTimer();
@@ -56,7 +61,7 @@ export default function Main() {
       };
     });
     if (!isRunning) stopTimer();
-    addLap();
+    addLap(wordsPerMinute, accuracy);
     resetTimer();
     setCurrentLetter(0);
     newArray();
@@ -101,7 +106,8 @@ export default function Main() {
         handleStartTimer={handleStartTimer}
         elapsedTime={elapsedTime}
         laps={laps}
-        // handleSetSpeed={handleSetSpeed}
+        wordsPerMinute={wordsPerMinute}
+        accuracy={accuracy}
       />
     </>
   );

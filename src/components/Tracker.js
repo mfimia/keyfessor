@@ -3,10 +3,8 @@ export default function Tracker({
   lettersArray,
   currentLetter,
   wordsPerMinute,
+  accuracy,
 }) {
-  const accuracy = Math.floor(
-    100 - (lettersArray.errors / lettersArray.totalLetters) * 100
-  );
   return (
     <div className="tracker--panel--container">
       <div className="speed--panel">

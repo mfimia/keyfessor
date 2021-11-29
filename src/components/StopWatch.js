@@ -1,10 +1,11 @@
 import "../css/StopWatch.css";
 
-export const StopWatch = ({ elapsedTime, laps, wordsPerMinute }) => {
+export const StopWatch = ({ elapsedTime, laps }) => {
   const timeResults = laps.map((lap, index) => {
     return (
       <div className="stopwatch--lap" key={index}>
-        Text {index + 1}: {Math.floor(lap)}s | {wordsPerMinute} WPM
+        T{index + 1}: {Math.floor(lap.time)}s | {lap.speed} WPM | {lap.accuracy}
+        %
       </div>
     );
   });
