@@ -13,12 +13,14 @@ export default function Keyboard({
   advanceText,
   currentLetter,
   addError,
+  handleStartTimer,
 }) {
   function highlightPressedKey({ key }) {
     const pressedLetter = key === " " ? "spacebar" : key;
     const activeKey = document.getElementById(pressedLetter);
     if (activeKey) {
       if (keyChecker(lettersArray, currentLetter, pressedLetter)) {
+        handleStartTimer();
         keySound.currentTime = 0.12;
         keySound.play();
         activeKey.classList.add("active-key__correct");
