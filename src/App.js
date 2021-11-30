@@ -14,7 +14,7 @@ export default function App() {
   const appClass = darkMode ? "App-dark" : "App";
   return (
     <div className={appClass}>
-      <Navbar />
+      <Navbar darkMode={darkMode} />
       <Main />
       <DarkMode toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
     </div>
