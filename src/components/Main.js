@@ -1,10 +1,9 @@
 import Text from "./Text";
 import TypingPanel from "./TypingPanel";
 import textArray from "./textData";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useStopwatch } from "./timerHook";
 import EndScreen from "./EndScreen";
-// let textNumber = 0;
 
 export default function Main() {
   const [currentLetter, setCurrentLetter] = useState(0);
@@ -22,6 +21,8 @@ export default function Main() {
     completedLetters: [],
     errors: 0,
   });
+  const restarted = useRef(false);
+  const endGame = useRef(false);
 
   const {
     isRunning,
@@ -31,6 +32,7 @@ export default function Main() {
     elapsedTime,
     startTimer,
     resetTimer,
+    resetLaps,
   } = useStopwatch();
 
   const averageLengthWord =
@@ -55,21 +57,26 @@ export default function Main() {
   };
   // lettersArray.totalLetters - 1
   const newText = () => {
-    setDisplayedText((previousText) => {
-      return {
-        ...previousText,
-        currentText: previousText.currentText + 1,
-      };
-    });
+    if (displayedText.currentText === textArray.length - 1) {
+      endGame.current = true;
+    } else {
+      setDisplayedText((previousText) => {
+        return {
+          ...previousText,
+          currentText: previousText.currentText + 1,
+        };
+      });
 
-    if (!isRunning) stopTimer();
-    addLap(wordsPerMinute, accuracy);
-    resetTimer();
-    setCurrentLetter(0);
+      if (!isRunning) stopTimer();
+      addLap(wordsPerMinute, accuracy);
+      resetTimer();
+      setCurrentLetter(0);
+    }
   };
 
   useEffect(() => {
-    if (displayedText.currentText) {
+    if (displayedText.currentText || restarted.current) {
+      restarted.current = false;
       setLettersArray((prev) => {
         return {
           ...prev,
@@ -94,20 +101,19 @@ export default function Main() {
     });
   };
 
-  // const resetGame = () => {
-  //   setCurrentLetter(0);
-  //   setDisplayedText((prevText) => {
-  //     return {
-  //       ...prevText,
-  //       currentText: 0,
-  //     };
-  //   });
-  //   setLettersArray(prevArray => {
-  //     return {
-
-  //     }
-  //   })
-  // };
+  const resetGame = () => {
+    restarted.current = true;
+    setCurrentLetter(0);
+    setDisplayedText((prevText) => {
+      return {
+        ...prevText,
+        currentText: 0,
+      };
+    });
+    resetTimer();
+    resetLaps();
+    endGame.current = false;
+  };
 
   return (
     <>
@@ -128,7 +134,7 @@ export default function Main() {
         accuracy={accuracy}
         isRunning={isRunning}
       />
-      <EndScreen laps={laps} />
+      {endGame.current && <EndScreen laps={laps} resetGame={resetGame} />}
     </>
   );
 }
