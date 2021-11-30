@@ -44,6 +44,7 @@ export const useStopwatch = () => {
     resetTimer: () => handleReset(),
     startTimer: () => setIsRunning(true),
     stopTimer: () => setIsRunning(false),
+    resetLaps: () => setLaps([]),
     isRunning,
   };
 };

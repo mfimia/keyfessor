@@ -15,6 +15,7 @@ export default function Keyboard({
   currentLetter,
   addError,
   handleStartTimer,
+  isRunning,
 }) {
   function highlightPressedKey({ key }) {
     const pressedLetter = key === " " ? "spacebar" : key;
@@ -26,7 +27,10 @@ export default function Keyboard({
         keySound.play();
         activeKey.classList.add("active-key__correct");
         advanceText();
-      } else if (!keyChecker(lettersArray, currentLetter, pressedLetter)) {
+      } else if (
+        !keyChecker(lettersArray, currentLetter, pressedLetter) &&
+        isRunning
+      ) {
         errorSound.currentTime = 0.12;
         errorSound.play();
         activeKey.classList.add("active-key__wrong");

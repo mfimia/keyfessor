@@ -12,6 +12,7 @@ export default function TypingPanel({
   handleStartTimer,
   wordsPerMinute,
   accuracy,
+  isRunning,
 }) {
   return (
     <>
@@ -21,6 +22,7 @@ export default function TypingPanel({
         currentLetter={currentLetter}
         addError={addError}
         handleStartTimer={handleStartTimer}
+        isRunning={isRunning}
       />
       <StopWatch
         elapsedTime={elapsedTime}

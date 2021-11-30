@@ -19,7 +19,7 @@ export default function Tracker({
       </div>
       <div className="accuracy--panel">
         Accuracy: <br />
-        <span className="panel--metric">{accuracy}%</span>
+        <span className="panel--metric">{accuracy || 100}%</span>
       </div>
     </div>
   );

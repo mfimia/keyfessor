@@ -1,9 +1,10 @@
 import Text from "./Text";
 import TypingPanel from "./TypingPanel";
 import textArray from "./textData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useStopwatch } from "./timerHook";
-let textNumber = 0;
+import EndScreen from "./EndScreen";
+// let textNumber = 0;
 
 export default function Main() {
   const [currentLetter, setCurrentLetter] = useState(0);
@@ -40,7 +41,7 @@ export default function Main() {
     Math.floor(currentLetter / averageLengthWord / minutes) || 0;
 
   const accuracy = Math.floor(
-    100 - (lettersArray.errors / lettersArray.totalLetters) * 100
+    100 - (lettersArray.errors / currentLetter) * 100
   );
 
   const handleStartTimer = () => {
@@ -49,10 +50,10 @@ export default function Main() {
 
   const advanceText = () => {
     setCurrentLetter((prev) => {
-      return prev === lettersArray.totalLetters - 1 ? newText() : prev + 1;
+      return prev === 5 ? newText() : prev + 1;
     });
   };
-
+  // lettersArray.totalLetters - 1
   const newText = () => {
     setDisplayedText((previousText) => {
       return {
@@ -65,23 +66,24 @@ export default function Main() {
     addLap(wordsPerMinute, accuracy);
     resetTimer();
     setCurrentLetter(0);
-    newArray();
   };
 
-  const newArray = () => {
-    setLettersArray((prev) => {
-      textNumber++;
-      return {
-        ...prev,
-        totalLetters: displayedText.texts[textNumber].toLowerCase().split("")
-          .length,
-        remainingLetters: displayedText.texts[textNumber]
-          .toLowerCase()
-          .split(""),
-        errors: 0,
-      };
-    });
-  };
+  useEffect(() => {
+    if (displayedText.currentText) {
+      setLettersArray((prev) => {
+        return {
+          ...prev,
+          totalLetters: displayedText.texts[displayedText.currentText]
+            .toLowerCase()
+            .split("").length,
+          remainingLetters: displayedText.texts[displayedText.currentText]
+            .toLowerCase()
+            .split(""),
+          errors: 0,
+        };
+      });
+    }
+  }, [displayedText.texts, displayedText.currentText]);
 
   const addError = () => {
     setLettersArray((prev) => {
@@ -91,6 +93,21 @@ export default function Main() {
       };
     });
   };
+
+  // const resetGame = () => {
+  //   setCurrentLetter(0);
+  //   setDisplayedText((prevText) => {
+  //     return {
+  //       ...prevText,
+  //       currentText: 0,
+  //     };
+  //   });
+  //   setLettersArray(prevArray => {
+  //     return {
+
+  //     }
+  //   })
+  // };
 
   return (
     <>
@@ -109,7 +126,9 @@ export default function Main() {
         laps={laps}
         wordsPerMinute={wordsPerMinute}
         accuracy={accuracy}
+        isRunning={isRunning}
       />
+      <EndScreen laps={laps} />
     </>
   );
 }
