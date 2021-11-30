@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 
-console.log(window.innerWidth);
 if (window.innerWidth >= 625) {
   ReactDOM.render(<App />, document.getElementById("root"));
 } else {
