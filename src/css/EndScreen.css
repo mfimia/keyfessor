@@ -9,6 +9,7 @@
   align-items: center;
   background-color: var(--primary-color);
   padding-top: 2%;
+  color: var(--keys-text);
 }
 
 .end--results {
@@ -21,20 +22,24 @@
   border: none;
   background-color: var(--primary-color);
   align-items: flex-start;
+  color: var(--keys-text);
 }
 
 .congrats {
   font-size: 2rem;
+  color: var(--keys-text);
 }
 
 .end--results--title {
   font-size: 1.4rem;
+  color: var(--keys-text);
 }
 
 .end--laps {
   padding: 2%;
   margin-left: 14%;
   font-size: 1.7rem;
+  color: var(--keys-text);
 }
 
 .end--reset {
@@ -42,8 +47,8 @@
   padding: 0.6rem;
   border-radius: 8px;
   border: none;
-
-  background-color: rgb(252, 226, 177);
+  background-color: var(--secondary-color);
+  color: var(--keys-text);
 }
 
 .end--reset:hover {

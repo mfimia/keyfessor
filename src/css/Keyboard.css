@@ -11,6 +11,7 @@
   font-weight: 500;
   background-color: var(--keys);
   box-shadow: 0px 2.98256px 7.4564px var(--dark-shadow);
+  color: var(--keys-text);
 }
 
 .active-key__correct {

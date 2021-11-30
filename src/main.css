@@ -14,9 +14,58 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  /* Light palette */
+  --primary-color: #f7f7e6;
+  --secondary-color: rgb(252, 226, 177);
+  --dark-shadow: rgba(0, 0, 0, 0.5);
+  --light-shadow: #163d57;
+  --light-text: grey;
+  --dark-text: black;
+  --border-color: #4e5255;
+  --accent-text1: #b6590d;
+  --accent-text2: #e06d10;
+  --accent-text3: #f4a15d;
+  --keys: white;
+  --keys-text: black;
+  --tracker: rgb(233, 255, 206);
+  --border-75-transparent: #d6e9f5;
+  background-color: var(--primary-color);
+  height: 100vh;
+}
+
+.App-dark {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* Dark palette  */
+  --primary-color: #0f0f0f;
+  --secondary-color: rgb(61, 59, 56);
+  --dark-shadow: #807f7f;
+  --light-shadow: #0f0f0f;
+  --dark-text: #d6e9f5;
+  --light-text: #b3b8bb;
+  --keys: rgb(51, 46, 46);
+  --tracker: rgb(26, 27, 24);
+  --keys-text: #d6e9f5;
+  background-color: var(--primary-color);
+  height: 100vh;
 }
 
 body {
   font-family: "Roboto", sans-serif;
-  background-color: var(--primary-color);
+}
+
+.light--toggler {
+  color: white;
+}
+
+.dark--toggler,
+.light--toggler {
+  position: absolute;
+  bottom: 8%;
+  right: 11%;
+  font-size: x-large;
+  cursor: pointer;
 }
