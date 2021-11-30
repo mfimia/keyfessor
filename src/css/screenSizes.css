@@ -1,0 +1,91 @@
+@media screen and (max-width: 1300px) {
+  .stopwatch--lap {
+    font-size: large;
+  }
+}
+@media screen and (max-width: 1135px) {
+  .remaining--letter,
+  .previous--letter {
+    font-size: 1.4rem;
+  }
+  .text {
+    width: 44%;
+  }
+}
+
+@media screen and (max-width: 1043px) {
+  .remaining--letter,
+  .previous--letter {
+    font-size: 1.2rem;
+  }
+  .stopwatch {
+    font-size: 1.4rem;
+  }
+  .panel--metric {
+    font-size: 1.3rem;
+  }
+
+  .end--results {
+    width: 55%;
+  }
+}
+
+@media screen and (max-width: 925px) {
+  .remaining--letter,
+  .previous--letter {
+    font-size: 1.1rem;
+  }
+  .stopwatch--lap {
+    font-size: medium;
+  }
+  .stopwatch--results {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 831px) {
+  .text > p {
+    line-height: 1.2;
+  }
+  .tracker--panel--container {
+    top: 28%;
+  }
+}
+@media screen and (max-width: 745px) {
+  .stopwatch--lap {
+    font-size: small;
+  }
+
+  .end--results {
+    width: 65%;
+  }
+
+  .panel--metric {
+    font-size: 1rem;
+  }
+
+  .speed--panel,
+  .accuracy--panel {
+    font-size: 0.8rem;
+  }
+
+  .tracker--panel--container {
+    min-width: 90px;
+  }
+
+  .text {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 711px) {
+  .stopwatch--results {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .keyboard--container {
+    min-width: 80%;
+  }
+}

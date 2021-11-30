@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./main.css";
 import Navbar from "./components/Navbar";
 import Main from "./components/Main";
 import DarkMode from "./components/DarkMode";
-import { useState } from "react";
+import "./css/screenSizes.css";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
