@@ -18,9 +18,10 @@
   --primary-color: #f7f7e6;
   --secondary-color: rgb(252, 226, 177);
   --dark-shadow: rgba(0, 0, 0, 0.5);
-  --light-shadow: #163d57;
+  --lap-results: #f0c7b5af;
   --light-text: grey;
   --dark-text: black;
+  --keys-shadow: rgba(0, 0, 0, 0.5);
   --border-color: #4e5255;
   --accent-text1: #b6590d;
   --accent-text2: #e06d10;
@@ -40,13 +41,14 @@
   align-items: center;
   text-align: center;
   /* Dark palette  */
-  --primary-color: #0f0f0f;
+  --primary-color: #242323;
   --secondary-color: rgb(61, 59, 56);
-  --dark-shadow: #807f7f;
-  --light-shadow: #0f0f0f;
+  --dark-shadow: black;
+  --keys-shadow: black;
+  --lap-results: #1a253e;
   --dark-text: #d6e9f5;
-  --light-text: #b3b8bb;
-  --keys: rgb(51, 46, 46);
+  --light-text: #7d8081;
+  --keys: rgb(92, 86, 86);
   --tracker: rgb(26, 27, 24);
   --keys-text: #d6e9f5;
   background-color: var(--primary-color);

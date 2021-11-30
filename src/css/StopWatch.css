@@ -15,10 +15,12 @@
   left: 3%;
   top: 20%;
   font-size: x-large;
-  padding: 20px;
-  box-shadow: 0px 2.98256px 7.4564px var(--dark-shadow);
+  padding: 10px;
+  box-shadow: 0px 3px 7.5px var(--dark-shadow);
   border: none;
+  background-color: var(--lap-results);
   color: var(--keys-text);
+  border-radius: 8px;
 }
 
 .stopwatch--lap {
