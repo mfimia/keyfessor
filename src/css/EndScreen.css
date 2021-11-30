@@ -37,7 +37,7 @@
 
 .end--laps {
   padding: 2%;
-  margin-left: 14%;
+  margin: 0 auto;
   font-size: 1.7rem;
   color: var(--keys-text);
 }
