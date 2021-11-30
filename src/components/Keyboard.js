@@ -6,7 +6,7 @@ import sound from "../assets/Mechanical-Keyboard-single-button-presses-4.mp3";
 import error from "../assets/mixkit-electric-fence-buzzing-2967.wav";
 const keySound = new Audio(sound);
 const errorSound = new Audio(error);
-errorSound.volume = 0.2;
+errorSound.volume = 0.15;
 keySound.volume = 0.5;
 
 export default function Keyboard({
