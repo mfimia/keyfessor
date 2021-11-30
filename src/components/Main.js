@@ -52,11 +52,9 @@ export default function Main() {
 
   const advanceText = () => {
     setCurrentLetter((prev) => {
-      return prev === 10 ? newText() : prev + 1;
+      return prev === lettersArray.totalLetters - 1 ? newText() : prev + 1;
     });
   };
-
-  // lettersArray.totalLetters - 1
 
   const newText = () => {
     if (displayedText.currentText === textArray.length - 1) {
