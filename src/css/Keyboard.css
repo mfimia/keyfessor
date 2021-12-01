@@ -15,6 +15,7 @@
 }
 
 .active-key__correct {
+  transition: all ease;
   border-bottom: green;
   box-shadow: 0 0 1rem green;
   transform: scale(1.1);
