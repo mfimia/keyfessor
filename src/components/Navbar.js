@@ -24,7 +24,10 @@ export default function Navbar({ darkMode }) {
         src={darkMode ? lightLogo : darkLogo}
       />
       {onLoad && (
-        <div className={darkMode ? "start--typing--dark" : "start--typing"}>
+        <div
+          id="start--text"
+          className={darkMode ? "start--typing--dark" : "start--typing"}
+        >
           Press{" "}
           <span>
             "m"
