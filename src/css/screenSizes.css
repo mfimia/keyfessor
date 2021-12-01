@@ -33,7 +33,7 @@
 @media screen and (max-width: 925px) {
   .remaining--letter,
   .previous--letter {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   .stopwatch--lap {
     font-size: medium;
@@ -41,14 +41,36 @@
   .stopwatch--results {
     padding: 10px;
   }
+
+  .keyboard--key {
+    height: 30px;
+    width: 30px;
+    font-size: 0.8rem;
+  }
+
+  .spacebar {
+    height: 30px;
+  }
+
+  .keyboard--container {
+    height: 160px;
+  }
 }
 
 @media screen and (max-width: 831px) {
   .text > p {
-    line-height: 1.2;
+    line-height: 1.1;
   }
   .tracker--panel--container {
     top: 28%;
+  }
+  .speed--panel,
+  .accuracy--panel {
+    width: 80%;
+  }
+
+  .panel--metric {
+    font-size: 1rem;
   }
 }
 @media screen and (max-width: 745px) {
@@ -87,5 +109,64 @@
 @media screen and (max-width: 639px) {
   .keyboard--container {
     min-width: 80%;
+  }
+}
+
+@media screen and (max-height: 810px) {
+  .text > p {
+    line-height: 1.1;
+  }
+
+  .tracker--panel--container {
+    height: 50%;
+  }
+
+  .speed--panel,
+  .accuracy--panel {
+    height: 20%;
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .text > p {
+    line-height: 1;
+  }
+}
+
+@media screen and (max-height: 630px) {
+  .panel--metric {
+    font-size: 1rem;
+  }
+  .remaining--letter,
+  .previous--letter {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-height: 590px) {
+  .keyboard--key {
+    height: 30px;
+    width: 30px;
+    font-size: 0.8rem;
+  }
+
+  .spacebar {
+    height: 30px;
+  }
+
+  .keyboard--container {
+    height: 160px;
+  }
+}
+
+@media screen and (max-height: 550px) {
+  .stopwatch--results {
+    padding: 3px;
+  }
+
+  .speed--panel,
+  .accuracy--panel {
+    width: 80%;
+    font-size: 0.8rem;
   }
 }
