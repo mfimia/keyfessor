@@ -9,6 +9,19 @@ const errorSound = new Audio(error)
 errorSound.volume = 0.15
 keySound.volume = 0.5
 
+function highlightKeyAsCorrect(key) {
+  key.classList.add('active-key__correct')
+}
+
+function highlightKeyAsIncorrect(key) {
+  key.classList.add('active-key__wrong')
+}
+
+function playSound(sound) {
+  sound.currentTime = 0.12
+  sound.play()
+}
+
 export default function Keyboard({
   lettersArray,
   advanceText,
@@ -17,36 +30,28 @@ export default function Keyboard({
   handleStartTimer,
   isRunning
 }) {
-  function highlightPressedKey({ key }) {
+  function handleKeyPress({ key }) {
     const pressedLetter = key === ' ' ? 'spacebar' : key
+    const activeKey = document.getElementById(pressedLetter.toLowerCase())
 
-    console.log(pressedLetter)
+    if (keyChecker(lettersArray, currentLetter, pressedLetter)) {
+      handleStartTimer()
+      highlightKeyAsCorrect(activeKey)
+      playSound(keySound)
+      advanceText()
+      return
+    }
 
-    const activeKey = document.getElementById(pressedLetter)
-    if (activeKey) {
-      if (keyChecker(lettersArray, currentLetter, pressedLetter)) {
-        handleStartTimer()
-        keySound.currentTime = 0.12
-        keySound.play()
-        activeKey.classList.add('active-key__correct')
-        advanceText()
-      }
-
-      if (
-        !keyChecker(lettersArray, currentLetter, pressedLetter) &&
-        isRunning
-      ) {
-        errorSound.currentTime = 0.12
-        errorSound.play()
-        activeKey.classList.add('active-key__wrong')
-        addError()
-      }
+    if (isRunning) {
+      highlightKeyAsIncorrect(activeKey)
+      playSound(errorSound)
+      addError()
     }
   }
 
-  function removeHighlightFromPressedKey({ key }) {
+  function handleKeyUp({ key }) {
     const pressedLetter = key === ' ' ? 'spacebar' : key
-    const activeKey = document.getElementById(pressedLetter)
+    const activeKey = document.getElementById(pressedLetter.toLowerCase())
     if (activeKey) {
       activeKey.classList.remove('active-key__correct') ||
         activeKey.classList.remove('active-key__wrong')
@@ -71,8 +76,8 @@ export default function Keyboard({
     )
   })
 
-  useEventListener('keypress', highlightPressedKey)
-  useEventListener('keyup', removeHighlightFromPressedKey)
+  useEventListener('keypress', handleKeyPress)
+  useEventListener('keyup', handleKeyUp)
 
   return <div className='keyboard--container'>{keyboard}</div>
 }

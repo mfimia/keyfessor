@@ -13,12 +13,9 @@ export default function Main() {
     currentText: 0
   })
   const [lettersArray, setLettersArray] = useState({
-    totalLetters: displayedText.texts[displayedText.currentText]
-      .toLowerCase()
-      .split('').length,
-    remainingLetters: displayedText.texts[displayedText.currentText]
-      .toLowerCase()
-      .split(''),
+    totalLetters:
+      displayedText.texts[displayedText.currentText].split('').length,
+    remainingLetters: displayedText.texts[displayedText.currentText].split(''),
     completedLetters: [],
     errors: 0
   })
