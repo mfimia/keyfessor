@@ -23,13 +23,9 @@
   --dark-text: black;
   --keys-shadow: rgba(0, 0, 0, 0.5);
   --contrast: rgb(61, 59, 56);
-  --accent-text1: #b6590d;
-  --accent-text2: #e06d10;
-  --accent-text3: #f4a15d;
   --keys: white;
   --keys-text: black;
   --tracker: rgb(233, 255, 206);
-  --border-75-transparent: #d6e9f5;
   background-color: var(--primary-color);
   height: 100vh;
 }
