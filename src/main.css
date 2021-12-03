@@ -65,20 +65,7 @@ html {
   text-rendering: optimizeLegibility;
 }
 
-.light--toggler {
-  color: var(--primary-color);
-  background-color: var(--contrast);
-}
-.dark--toggler {
-  color: white;
-  background-color: var(--contrast);
-}
-
-.light--toggler:hover {
-  color: var(--contrast);
-  background-color: var(--primary-color);
-}
-
+.light--toggler:hover,
 .dark--toggler:hover {
   color: var(--contrast);
   background-color: var(--primary-color);
@@ -93,6 +80,8 @@ html {
   width: 36px;
   transition: ease 0.5s;
   outline: 4px solid var(--primary-color);
+  color: var(--primary-color);
+  background-color: var(--contrast);
 }
 
 .toggler--container {
