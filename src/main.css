@@ -22,7 +22,7 @@
   --light-text: grey;
   --dark-text: black;
   --keys-shadow: rgba(0, 0, 0, 0.5);
-  --border-color: #4e5255;
+  --contrast: rgb(61, 59, 56);
   --accent-text1: #b6590d;
   --accent-text2: #e06d10;
   --accent-text3: #f4a15d;
@@ -47,6 +47,7 @@
   --keys-shadow: black;
   --lap-results: #1a253e;
   --dark-text: #d6e9f5;
+  --contrast: #f7f7e6;
   --light-text: #7d8081;
   --keys: rgb(92, 86, 86);
   --tracker: rgb(26, 27, 24);
@@ -65,14 +66,47 @@ html {
 }
 
 .light--toggler {
+  color: var(--primary-color);
+  background-color: var(--contrast);
+}
+.dark--toggler {
   color: white;
+  background-color: var(--contrast);
+}
+
+.light--toggler:hover {
+  color: var(--contrast);
+  background-color: var(--primary-color);
+}
+
+.dark--toggler:hover {
+  color: var(--contrast);
+  background-color: var(--primary-color);
 }
 
 .dark--toggler,
 .light--toggler {
-  position: absolute;
-  bottom: 8%;
-  right: 11%;
-  font-size: x-large;
+  font-size: large;
   cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  width: 36px;
+  transition: ease 0.5s;
+  outline: 4px solid var(--primary-color);
+}
+
+.toggler--container {
+  position: absolute;
+  right: 0;
+  border-right: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 7%;
+  width: 50px;
+  height: 50px;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  box-shadow: 0px 3px 7.5px var(--dark-shadow);
+  background-color: var(--primary-color);
 }
