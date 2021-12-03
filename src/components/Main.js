@@ -79,21 +79,18 @@ export default function Main() {
       setLettersArray((prev) => {
         return {
           ...prev,
-          totalLetters: displayedText.texts[displayedText.currentText]
-            .toLowerCase()
-            .split('').length,
-          remainingLetters: displayedText.texts[displayedText.currentText]
-            .toLowerCase()
-            .split(''),
+          totalLetters:
+            displayedText.texts[displayedText.currentText].split('').length,
+          remainingLetters:
+            displayedText.texts[displayedText.currentText].split(''),
           errors: 0
         }
       })
     }
   }, [displayedText.texts, displayedText.currentText])
 
-  let progressBarMaxValue = displayedText.texts[displayedText.currentText]
-    .toLowerCase()
-    .split('').length
+  let progressBarMaxValue =
+    displayedText.texts[displayedText.currentText].split('').length
 
   const addError = () => {
     setLettersArray((prev) => {

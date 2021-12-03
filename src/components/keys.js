@@ -12,7 +12,7 @@ const keys = [
     className: 'keyboard--bot--row'
   },
   {
-    keys: ['Spacebar'],
+    keys: ['spacebar'],
     className: 'spacebar--row'
   }
 ]

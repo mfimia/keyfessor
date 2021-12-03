@@ -19,6 +19,9 @@ export default function Keyboard({
 }) {
   function highlightPressedKey({ key }) {
     const pressedLetter = key === ' ' ? 'spacebar' : key
+
+    console.log(pressedLetter)
+
     const activeKey = document.getElementById(pressedLetter)
     if (activeKey) {
       if (keyChecker(lettersArray, currentLetter, pressedLetter)) {
@@ -38,8 +41,6 @@ export default function Keyboard({
         activeKey.classList.add('active-key__wrong')
         addError()
       }
-
-      return
     }
   }
 
@@ -50,8 +51,6 @@ export default function Keyboard({
       activeKey.classList.remove('active-key__correct') ||
         activeKey.classList.remove('active-key__wrong')
     }
-
-    return
   }
 
   const keyboard = keys.map((row, index) => {
@@ -60,11 +59,11 @@ export default function Keyboard({
         {row.keys.map((rowKey, keyIndex) => {
           return (
             <span
-              id={rowKey.toLowerCase()}
-              className={rowKey === 'Spacebar' ? 'spacebar' : 'keyboard--key'}
+              id={rowKey}
+              className={rowKey === 'spacebar' ? 'spacebar' : 'keyboard--key'}
               key={keyIndex}
             >
-              {rowKey === 'Spacebar' ? '-' : rowKey}
+              {rowKey === 'spacebar' ? '-' : rowKey}
             </span>
           )
         })}
@@ -72,7 +71,7 @@ export default function Keyboard({
     )
   })
 
-  useEventListener('keydown', highlightPressedKey)
+  useEventListener('keypress', highlightPressedKey)
   useEventListener('keyup', removeHighlightFromPressedKey)
 
   return <div className='keyboard--container'>{keyboard}</div>
