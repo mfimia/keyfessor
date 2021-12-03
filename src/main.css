@@ -23,13 +23,9 @@
   --dark-text: black;
   --keys-shadow: rgba(0, 0, 0, 0.5);
   --contrast: rgb(61, 59, 56);
-  --accent-text1: #b6590d;
-  --accent-text2: #e06d10;
-  --accent-text3: #f4a15d;
   --keys: white;
   --keys-text: black;
   --tracker: rgb(233, 255, 206);
-  --border-75-transparent: #d6e9f5;
   background-color: var(--primary-color);
   height: 100vh;
 }
@@ -65,20 +61,7 @@ html {
   text-rendering: optimizeLegibility;
 }
 
-.light--toggler {
-  color: var(--primary-color);
-  background-color: var(--contrast);
-}
-.dark--toggler {
-  color: white;
-  background-color: var(--contrast);
-}
-
-.light--toggler:hover {
-  color: var(--contrast);
-  background-color: var(--primary-color);
-}
-
+.light--toggler:hover,
 .dark--toggler:hover {
   color: var(--contrast);
   background-color: var(--primary-color);
@@ -93,6 +76,8 @@ html {
   width: 36px;
   transition: ease 0.5s;
   outline: 4px solid var(--primary-color);
+  color: var(--primary-color);
+  background-color: var(--contrast);
 }
 
 .toggler--container {

@@ -28,7 +28,7 @@ export default function Navbar({ darkMode }) {
           id="start--text"
           className={darkMode ? "start--typing--dark" : "start--typing"}
         >
-          Press{" "}
+          Type{" "}
           <span>
             "m"
             <Pointer darkMode={darkMode} />
