@@ -22,6 +22,32 @@ function playSound(sound) {
   sound.play()
 }
 
+// Old version that works
+
+// function highlightPressedKey({ key }) {
+//   const pressedLetter = key === " " ? "spacebar" : key;
+//   const activeKey = document.getElementById(pressedLetter);
+//   if (activeKey) {
+//     if (keyChecker(lettersArray, currentLetter, pressedLetter)) {
+//       handleStartTimer();
+//       keySound.currentTime = 0.12;
+//       keySound.play();
+//       activeKey.classList.add("active-key__correct");
+//       advanceText();
+//     } else if (
+//       !keyChecker(lettersArray, currentLetter, pressedLetter) &&
+//       isRunning
+//     ) {
+//       errorSound.currentTime = 0.12;
+//       errorSound.play();
+//       activeKey.classList.add("active-key__wrong");
+//       addError();
+//     } else {
+//       return;
+//     }
+//   }
+// }
+
 export default function Keyboard({
   lettersArray,
   advanceText,
@@ -68,7 +94,7 @@ export default function Keyboard({
               className={rowKey === 'spacebar' ? 'spacebar' : 'keyboard--key'}
               key={keyIndex}
             >
-              {rowKey === 'spacebar' ? '-' : rowKey}
+              {rowKey === 'spacebar' ? '-' : rowKey.toUpperCase()}
             </span>
           )
         })}
