@@ -1,10 +1,11 @@
-import Text from './Text'
-import TypingPanel from './TypingPanel'
-import textArray from './textData'
 import { useEffect, useState, useRef } from 'react'
 import { useStopwatch } from './timerHook'
-import EndScreen from './EndScreen'
+import StartScreen from './StartScreen'
+import textArray from './textData'
+import Text from './Text'
+import TypingPanel from './TypingPanel'
 import ProgressBar from './ProgressBar'
+import EndScreen from './EndScreen'
 
 export default function Main() {
   const [currentLetter, setCurrentLetter] = useState(0)
@@ -21,6 +22,8 @@ export default function Main() {
   })
   const restarted = useRef(false)
   const endGame = useRef(false)
+
+  const firstLetter = displayedText.texts[displayedText.currentText][0]
 
   const {
     isRunning,
@@ -120,6 +123,9 @@ export default function Main() {
 
   return (
     <>
+      <StartScreen>
+        <p>Type "{firstLetter}" to start</p>
+      </StartScreen>
       <Text
         currentLetter={currentLetter}
         displayedText={displayedText.texts[displayedText.currentText]}
