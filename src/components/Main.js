@@ -40,7 +40,13 @@ export default function Main() {
   const wordsPerMinute =
     Math.floor(currentLetter / averageLengthWord / minutes) || 0
 
-  const accuracy = Math.floor(100 - (lettersArray.errors / currentLetter) * 100)
+  let accuracy = 100
+  if (isRunning) {
+    accuracy =
+      lettersArray.errors > currentLetter
+        ? 0
+        : Math.floor((1 - lettersArray.errors / currentLetter) * 100)
+  }
 
   const handleStartTimer = () => {
     if (!isRunning) startTimer()
