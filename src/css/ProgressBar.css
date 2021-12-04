@@ -17,6 +17,7 @@ progress[value]::-webkit-progress-value {
     ),
     -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)),
     -webkit-linear-gradient(left, #09c, #f44);
+  background-size: 35px 20px, 100% 100%, 100% 100%;
   border-radius: 3px;
 }
 
