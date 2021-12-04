@@ -1,29 +1,29 @@
-import Text from './Text'
-import TypingPanel from './TypingPanel'
-import textArray from './textData'
 import { useEffect, useState, useRef } from 'react'
 import { useStopwatch } from './timerHook'
-import EndScreen from './EndScreen'
+import StartScreen from './StartScreen'
+import textArray from './textData'
+import Text from './Text'
+import TypingPanel from './TypingPanel'
 import ProgressBar from './ProgressBar'
+import EndScreen from './EndScreen'
 
-export default function Main() {
+export default function Main(props) {
   const [currentLetter, setCurrentLetter] = useState(0)
   const [displayedText, setDisplayedText] = useState({
     texts: textArray,
     currentText: 0
   })
   const [lettersArray, setLettersArray] = useState({
-    totalLetters: displayedText.texts[displayedText.currentText]
-      .toLowerCase()
-      .split('').length,
-    remainingLetters: displayedText.texts[displayedText.currentText]
-      .toLowerCase()
-      .split(''),
+    totalLetters:
+      displayedText.texts[displayedText.currentText].split('').length,
+    remainingLetters: displayedText.texts[displayedText.currentText].split(''),
     completedLetters: [],
     errors: 0
   })
   const restarted = useRef(false)
   const endGame = useRef(false)
+
+  const firstLetter = displayedText.texts[displayedText.currentText][0]
 
   const {
     isRunning,
@@ -43,7 +43,13 @@ export default function Main() {
   const wordsPerMinute =
     Math.floor(currentLetter / averageLengthWord / minutes) || 0
 
-  const accuracy = Math.floor(100 - (lettersArray.errors / currentLetter) * 100)
+  let accuracy = 100
+  if (isRunning) {
+    accuracy =
+      lettersArray.errors > currentLetter
+        ? 0
+        : Math.floor((1 - lettersArray.errors / currentLetter) * 100)
+  }
 
   const handleStartTimer = () => {
     if (!isRunning) startTimer()
@@ -79,21 +85,18 @@ export default function Main() {
       setLettersArray((prev) => {
         return {
           ...prev,
-          totalLetters: displayedText.texts[displayedText.currentText]
-            .toLowerCase()
-            .split('').length,
-          remainingLetters: displayedText.texts[displayedText.currentText]
-            .toLowerCase()
-            .split(''),
+          totalLetters:
+            displayedText.texts[displayedText.currentText].split('').length,
+          remainingLetters:
+            displayedText.texts[displayedText.currentText].split(''),
           errors: 0
         }
       })
     }
   }, [displayedText.texts, displayedText.currentText])
 
-  let progressBarMaxValue = displayedText.texts[displayedText.currentText]
-    .toLowerCase()
-    .split('').length
+  let progressBarMaxValue =
+    displayedText.texts[displayedText.currentText].split('').length
 
   const addError = () => {
     setLettersArray((prev) => {
@@ -120,6 +123,19 @@ export default function Main() {
 
   return (
     <>
+      {!isRunning ? (
+        <StartScreen darkMode={props.darkMode}>
+          <div
+            id='start--text'
+            className={props.darkMode ? 'start--typing--dark' : 'start--typing'}
+          >
+            <p>Type "{firstLetter}" to start</p>
+          </div>
+        </StartScreen>
+      ) : (
+        ''
+      )}
+
       <Text
         currentLetter={currentLetter}
         displayedText={displayedText.texts[displayedText.currentText]}

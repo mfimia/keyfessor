@@ -1,0 +1,13 @@
+.start--typing--dark,
+.start--typing {
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+.start--typing--dark {
+  color: white;
+}
+
+.start--typing {
+  color: black;
+}
