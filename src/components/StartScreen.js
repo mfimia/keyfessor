@@ -4,7 +4,7 @@ export default function StartScreen(props) {
   return (
     <>
       {props.children}
-      <Pointer darkMode={darkMode} />
+      <Pointer />
     </>
   )
 }

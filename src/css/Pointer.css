@@ -1,8 +1,6 @@
 #pointer--hand {
-  bottom: 0;
-  left: 50%;
-  position: absolute;
-  transform: translate(-80%, 100%);
+  align-self: center;
+  display: flex;
   width: 1.5rem;
 }
 
