@@ -125,7 +125,12 @@ export default function Main(props) {
     <>
       {!isRunning ? (
         <StartScreen darkMode={props.darkMode}>
-          <p>Type "{firstLetter}" to start</p>
+          <div
+            id='start--text'
+            className={props.darkMode ? 'start--typing--dark' : 'start--typing'}
+          >
+            <p>Type "{firstLetter}" to start</p>
+          </div>
         </StartScreen>
       ) : (
         ''

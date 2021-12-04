@@ -22,12 +22,12 @@ export default function Navbar({ darkMode }) {
         className='header--logo'
         src={darkMode ? lightLogo : darkLogo}
       />
-      {onLoad && (
+      {/* {onLoad && (
         <div
           id='start--text'
           className={darkMode ? 'start--typing--dark' : 'start--typing'}
         ></div>
-      )}
+      )} */}
     </>
   )
 }
