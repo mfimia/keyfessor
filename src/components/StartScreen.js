@@ -1,3 +1,4 @@
+import '.././css/StartScreen.css'
 import Pointer from './Pointer'
 
 export default function StartScreen(props) {
