@@ -123,9 +123,14 @@ export default function Main() {
 
   return (
     <>
-      <StartScreen>
-        <p>Type "{firstLetter}" to start</p>
-      </StartScreen>
+      {!isRunning ? (
+        <StartScreen>
+          <p>Type "{firstLetter}" to start</p>
+        </StartScreen>
+      ) : (
+        ''
+      )}
+
       <Text
         currentLetter={currentLetter}
         displayedText={displayedText.texts[displayedText.currentText]}
