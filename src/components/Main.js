@@ -7,7 +7,7 @@ import TypingPanel from './TypingPanel'
 import ProgressBar from './ProgressBar'
 import EndScreen from './EndScreen'
 
-export default function Main() {
+export default function Main(props) {
   const [currentLetter, setCurrentLetter] = useState(0)
   const [displayedText, setDisplayedText] = useState({
     texts: textArray,
@@ -124,7 +124,7 @@ export default function Main() {
   return (
     <>
       {!isRunning ? (
-        <StartScreen>
+        <StartScreen darkMode={props.darkMode}>
           <p>Type "{firstLetter}" to start</p>
         </StartScreen>
       ) : (
