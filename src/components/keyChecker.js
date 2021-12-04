@@ -13,5 +13,6 @@ export default function keyChecker(lettersArray, currentLetter, pressedLetter) {
     return true
   }
 
+  console.log('condition 3')
   return false
 }
