@@ -131,7 +131,8 @@ export default function Main(props) {
             className={props.darkMode ? "start--typing--dark" : "start--typing"}
           >
             <p>
-              Type "{firstLetter}" <Pointer /> to start
+              Type "{firstLetter}" <Pointer darkMode={props.darkMode} /> to
+              start
             </p>
           </div>
         </StartScreen>
