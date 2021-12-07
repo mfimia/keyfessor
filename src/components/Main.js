@@ -1,29 +1,30 @@
-import { useEffect, useState, useRef } from 'react'
-import { useStopwatch } from './timerHook'
-import StartScreen from './StartScreen'
-import textArray from './textData'
-import Text from './Text'
-import TypingPanel from './TypingPanel'
-import ProgressBar from './ProgressBar'
-import EndScreen from './EndScreen'
+import { useEffect, useState, useRef } from "react";
+import { useStopwatch } from "./timerHook";
+import StartScreen from "./StartScreen";
+import textArray from "./textData";
+import Text from "./Text";
+import TypingPanel from "./TypingPanel";
+import ProgressBar from "./ProgressBar";
+import EndScreen from "./EndScreen";
+import Pointer from "./Pointer";
 
 export default function Main(props) {
-  const [currentLetter, setCurrentLetter] = useState(0)
+  const [currentLetter, setCurrentLetter] = useState(0);
   const [displayedText, setDisplayedText] = useState({
     texts: textArray,
-    currentText: 0
-  })
+    currentText: 0,
+  });
   const [lettersArray, setLettersArray] = useState({
     totalLetters:
-      displayedText.texts[displayedText.currentText].split('').length,
-    remainingLetters: displayedText.texts[displayedText.currentText].split(''),
+      displayedText.texts[displayedText.currentText].split("").length,
+    remainingLetters: displayedText.texts[displayedText.currentText].split(""),
     completedLetters: [],
-    errors: 0
-  })
-  const restarted = useRef(false)
-  const endGame = useRef(false)
+    errors: 0,
+  });
+  const restarted = useRef(false);
+  const endGame = useRef(false);
 
-  const firstLetter = displayedText.texts[displayedText.currentText][0]
+  const firstLetter = displayedText.texts[displayedText.currentText][0];
 
   const {
     isRunning,
@@ -33,107 +34,110 @@ export default function Main(props) {
     elapsedTime,
     startTimer,
     resetTimer,
-    resetLaps
-  } = useStopwatch()
+    resetLaps,
+  } = useStopwatch();
 
   const averageLengthWord =
     lettersArray.totalLetters /
-    lettersArray.remainingLetters.join('').split(' ').length
-  const minutes = elapsedTime / 60
+    lettersArray.remainingLetters.join("").split(" ").length;
+  const minutes = elapsedTime / 60;
   const wordsPerMinute =
-    Math.floor(currentLetter / averageLengthWord / minutes) || 0
+    Math.floor(currentLetter / averageLengthWord / minutes) || 0;
 
-  let accuracy = 100
+  let accuracy = 100;
   if (isRunning) {
     accuracy =
       lettersArray.errors > currentLetter
         ? 0
-        : Math.floor((1 - lettersArray.errors / currentLetter) * 100)
+        : Math.floor((1 - lettersArray.errors / currentLetter) * 100);
   }
 
   const handleStartTimer = () => {
-    if (!isRunning) startTimer()
-  }
+    if (!isRunning) startTimer();
+  };
 
   const advanceText = () => {
     setCurrentLetter((prev) => {
-      return prev === lettersArray.totalLetters - 1 ? newText() : prev + 1
-    })
-  }
+      return prev === lettersArray.totalLetters - 1 ? newText() : prev + 1;
+    });
+  };
 
   const newText = () => {
     if (displayedText.currentText === textArray.length - 1) {
-      endGame.current = true
+      endGame.current = true;
     } else {
       setDisplayedText((previousText) => {
         return {
           ...previousText,
-          currentText: previousText.currentText + 1
-        }
-      })
+          currentText: previousText.currentText + 1,
+        };
+      });
 
-      if (!isRunning) stopTimer()
-      addLap(wordsPerMinute, accuracy)
-      resetTimer()
-      setCurrentLetter(0)
+      if (!isRunning) stopTimer();
+      addLap(wordsPerMinute, accuracy);
+      resetTimer();
+      setCurrentLetter(0);
     }
-  }
+  };
 
   useEffect(() => {
     if (displayedText.currentText || restarted.current) {
-      restarted.current = false
+      restarted.current = false;
       setLettersArray((prev) => {
         return {
           ...prev,
           totalLetters:
-            displayedText.texts[displayedText.currentText].split('').length,
+            displayedText.texts[displayedText.currentText].split("").length,
           remainingLetters:
-            displayedText.texts[displayedText.currentText].split(''),
-          errors: 0
-        }
-      })
+            displayedText.texts[displayedText.currentText].split(""),
+          errors: 0,
+        };
+      });
     }
-  }, [displayedText.texts, displayedText.currentText])
+  }, [displayedText.texts, displayedText.currentText]);
 
   let progressBarMaxValue =
-    displayedText.texts[displayedText.currentText].split('').length
+    displayedText.texts[displayedText.currentText].split("").length;
 
   const addError = () => {
     setLettersArray((prev) => {
       return {
         ...prev,
-        errors: prev.errors + 1
-      }
-    })
-  }
+        errors: prev.errors + 1,
+      };
+    });
+  };
 
   const resetGame = () => {
-    restarted.current = true
-    setCurrentLetter(0)
+    restarted.current = true;
+    setCurrentLetter(0);
     setDisplayedText((prevText) => {
       return {
         ...prevText,
-        currentText: 0
-      }
-    })
-    resetTimer()
-    resetLaps()
-    endGame.current = false
-  }
+        currentText: 0,
+      };
+    });
+    resetTimer();
+    resetLaps();
+    endGame.current = false;
+  };
 
   return (
     <>
       {!isRunning ? (
         <StartScreen darkMode={props.darkMode}>
           <div
-            id='start--text'
-            className={props.darkMode ? 'start--typing--dark' : 'start--typing'}
+            id="start--text"
+            className={props.darkMode ? "start--typing--dark" : "start--typing"}
           >
-            <p>Type "{firstLetter}" to start</p>
+            <p>
+              Type "{firstLetter}" <Pointer darkMode={props.darkMode} /> to
+              start
+            </p>
           </div>
         </StartScreen>
       ) : (
-        ''
+        ""
       )}
 
       <Text
@@ -159,5 +163,5 @@ export default function Main(props) {
       />
       {endGame.current && <EndScreen laps={laps} resetGame={resetGame} />}
     </>
-  )
+  );
 }

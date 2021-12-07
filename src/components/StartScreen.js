@@ -1,11 +1,5 @@
-import '.././css/StartScreen.css'
-import Pointer from './Pointer'
+import ".././css/StartScreen.css";
 
 export default function StartScreen(props) {
-  return (
-    <>
-      {props.children}
-      <Pointer darkMode={props.darkMode} />
-    </>
-  )
+  return <>{props.children}</>;
 }
