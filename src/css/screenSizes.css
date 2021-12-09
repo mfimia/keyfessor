@@ -2,6 +2,10 @@
   .stopwatch--lap {
     font-size: large;
   }
+  .remaining--letter,
+  .previous--letter {
+    font-size: 1.6rem;
+  }
 }
 @media screen and (max-width: 1135px) {
   .remaining--letter,
@@ -11,13 +15,12 @@
   .text {
     width: 44%;
   }
+  .text p {
+    line-height: 1.2;
+  }
 }
 
 @media screen and (max-width: 1043px) {
-  .remaining--letter,
-  .previous--letter {
-    font-size: 1.2rem;
-  }
   .stopwatch {
     font-size: 1.4rem;
   }
@@ -28,13 +31,12 @@
   .end--results {
     width: 55%;
   }
+  .text p {
+    line-height: 1;
+  }
 }
 
 @media screen and (max-width: 925px) {
-  .remaining--letter,
-  .previous--letter {
-    font-size: 1rem;
-  }
   .stopwatch--lap {
     font-size: medium;
   }
@@ -114,7 +116,7 @@
 
 @media screen and (max-height: 810px) {
   .text > p {
-    line-height: 1.1;
+    line-height: 1;
   }
 
   .tracker--panel--container {
