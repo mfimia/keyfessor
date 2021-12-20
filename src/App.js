@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./main.css";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -7,6 +7,8 @@ import Navbar from "./components/Navbar";
 import Main from "./components/Main";
 import DarkMode from "./components/DarkMode";
 import "./css/screenSizes.css";
+
+const enoughFirstSize = window.innerWidth >= 900 && window.innerHeight >= 750;
 
 const style = {
   position: "absolute",
@@ -24,10 +26,6 @@ const style = {
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [wideScreen, setWideScreen] = useState(true);
-
-  const firstScreenHeight = window.innerHeight >= 750 ? true : false;
-  const firstScreenWidth = window.innerWidth >= 900 ? true : false;
-  const enoughFirstSize = (firstScreenHeight && firstScreenWidth) || false;
 
   const toggleDarkMode = () => {
     setDarkMode((prev) => !prev);
