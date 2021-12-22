@@ -1,6 +1,11 @@
-import "../css/StopWatch.css";
+import "../../css/StopWatch.css";
+import MainContext from "../../context/main/MainContext";
+import { useContext } from "react";
 
-export const StopWatch = ({ elapsedTime, laps }) => {
+export const StopWatch = () => {
+  const mainContext = useContext(MainContext);
+  const { elapsedTime, laps } = mainContext;
+
   const timeResults = laps.map((lap, index) => {
     return (
       <div className="stopwatch--lap" key={index}>

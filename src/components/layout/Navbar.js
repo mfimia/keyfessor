@@ -1,6 +1,6 @@
-import "../css/Navbar.css";
-import lightLogo from "../assets/keyfessor-white-logo.png";
-import darkLogo from "../assets/keyfessor-black-logo.png";
+import "../../css/Navbar.css";
+import lightLogo from "../../assets/keyfessor-white-logo.png";
+import darkLogo from "../../assets/keyfessor-black-logo.png";
 import useEventListener from "@use-it/event-listener";
 import { useState } from "react";
 
