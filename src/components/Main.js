@@ -1,14 +1,16 @@
-import { useEffect, useState, useRef } from "react";
-import { useStopwatch } from "./utils/timerHook";
+import { useContext } from "react";
+import MainContext from "../context/main/MainContext";
 import StartScreen from "./layout/StartScreen";
-import textArray from "./data/textData";
 import Text from "./Text";
 import TypingPanel from "./TypingPanel";
 import ProgressBar from "./layout/ProgressBar";
 import EndScreen from "./layout/EndScreen";
 import Pointer from "./layout/Pointer";
 
-export default function Main() {
+export default function Main(props) {
+  const mainContext = useContext(MainContext);
+  const { firstLetter, endGame } = mainContext;
+
   return (
     <>
       {!isRunning ? (
@@ -26,7 +28,6 @@ export default function Main() {
       ) : (
         ""
       )}
-
       <Text />
       <ProgressBar />
       <TypingPanel />
