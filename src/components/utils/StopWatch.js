@@ -1,4 +1,4 @@
-import "../css/StopWatch.css";
+import "../../css/StopWatch.css";
 import MainContext from "../../context/main/MainContext";
 import { useContext } from "react";
 

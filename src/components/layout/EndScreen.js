@@ -1,5 +1,11 @@
-import "../css/EndScreen.css";
-export default function EndScreen({ resetGame, laps }) {
+import { useContext } from "react";
+import MainContext from "../../context/main/MainContext";
+import "../../css/EndScreen.css";
+
+export default function EndScreen() {
+  const mainContext = useContext(MainContext);
+  const { resetGame, laps } = mainContext;
+
   const timeResults = laps.map((lap, index) => {
     return (
       <div className="end--laps" key={index}>

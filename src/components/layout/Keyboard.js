@@ -1,9 +1,11 @@
-import "../css/Keyboard.css";
+import MainContext from "../../context/main/MainContext";
 import useEventListener from "@use-it/event-listener";
+import { useContext } from "react";
 import keys from "../data/keys";
 import keyChecker from "../utils/keyChecker";
-import sound from "../assets/Mechanical-Keyboard-single-button-presses-4.mp3";
-import error from "../assets/mixkit-electric-fence-buzzing-2967.wav";
+import sound from "../../assets/Mechanical-Keyboard-single-button-presses-4.mp3";
+import error from "../../assets/mixkit-electric-fence-buzzing-2967.wav";
+import "../../css/Keyboard.css";
 const keySound = new Audio(sound);
 const errorSound = new Audio(error);
 errorSound.volume = 0.15;
@@ -22,14 +24,17 @@ function playSound(sound) {
   sound.play();
 }
 
-export default function Keyboard({
-  lettersArray,
-  advanceText,
-  currentLetter,
-  addError,
-  handleStartTimer,
-  isRunning,
-}) {
+export default function Keyboard() {
+  const mainContext = useContext(MainContext);
+  const {
+    lettersArray,
+    advanceText,
+    currentLetter,
+    addError,
+    handleStartTimer,
+    isRunning,
+  } = mainContext;
+
   function handleKeyPress({ key }) {
     const pressedLetter = key === " " ? "spacebar" : key;
     const activeKey = document.getElementById(pressedLetter.toLowerCase());

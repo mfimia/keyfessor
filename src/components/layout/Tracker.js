@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import MainContext from "../../context/main/MainContext";
-import "../css/Tracker.css";
+import "../../css/Tracker.css";
 
 export default function Tracker() {
   const mainContext = useContext(MainContext);

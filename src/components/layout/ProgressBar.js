@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import MainContext from "../../context/main/MainContext";
-import "../css/ProgressBar.css";
+import "../../css/ProgressBar.css";
 
 export default function ProgressBar() {
   const mainContext = useContext(MainContext);

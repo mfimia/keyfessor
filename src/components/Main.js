@@ -9,7 +9,7 @@ import Pointer from "./layout/Pointer";
 
 export default function Main(props) {
   const mainContext = useContext(MainContext);
-  const { firstLetter, endGame } = mainContext;
+  const { firstLetter, endGame, isRunning } = mainContext;
 
   return (
     <>
