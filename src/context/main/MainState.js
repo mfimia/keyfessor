@@ -12,7 +12,6 @@ const MainState = (props) => {
     totalLetters:
       displayedText.texts[displayedText.currentText].split("").length,
     remainingLetters: displayedText.texts[displayedText.currentText].split(""),
-    completedLetters: [],
     errors: 0,
   });
   const restarted = useRef(false);
