@@ -1,6 +1,7 @@
 import MainContext from "./MainContext";
 import { useState, useRef, useEffect } from "react";
 import { useStopwatch } from "../../components/utils/timerHook";
+import textArray from "../../components/data/textData";
 
 const MainState = (props) => {
   const [currentLetter, setCurrentLetter] = useState(0);
