@@ -90,9 +90,6 @@ const MainState = (props) => {
     }
   }, [displayedText.texts, displayedText.currentText]);
 
-  let progressBarMaxValue =
-    displayedText.texts[displayedText.currentText].split("").length;
-
   const addError = () => {
     setLettersArray((prev) => {
       return {
@@ -117,7 +114,26 @@ const MainState = (props) => {
   };
 
   return (
-    <MainContext.Provider value={{}}>{props.children}</MainContext.Provider>
+    <MainContext.Provider
+      value={{
+        displayedText,
+        lettersArray,
+        currentLetter,
+        firstLetter,
+        endGame,
+        elapsedTime,
+        laps,
+        wordsPerMinute,
+        accuracy,
+        isRunning,
+        addError,
+        advanceText,
+        handleStartTimer,
+        resetGame,
+      }}
+    >
+      {props.children}
+    </MainContext.Provider>
   );
 };
 
