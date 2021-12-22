@@ -3,7 +3,7 @@ import "./main.css";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/layout/Navbar";
 import Main from "./components/Main";
 import DarkMode from "./components/DarkMode";
 import "./css/screenSizes.css";

@@ -1,4 +1,6 @@
 import MainContext from "./MainContext";
+import { useState, useRef, useEffect } from "react";
+import { useStopwatch } from "../../components/utils/timerHook";
 
 const MainState = (props) => {
   const [currentLetter, setCurrentLetter] = useState(0);

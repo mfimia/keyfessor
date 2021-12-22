@@ -1,12 +1,12 @@
 import { useEffect, useState, useRef } from "react";
-import { useStopwatch } from "./timerHook";
-import StartScreen from "./StartScreen";
-import textArray from "./textData";
+import { useStopwatch } from "./utils/timerHook";
+import StartScreen from "./layout/StartScreen";
+import textArray from "./data/textData";
 import Text from "./Text";
 import TypingPanel from "./TypingPanel";
-import ProgressBar from "./ProgressBar";
-import EndScreen from "./EndScreen";
-import Pointer from "./Pointer";
+import ProgressBar from "./layout/ProgressBar";
+import EndScreen from "./layout/EndScreen";
+import Pointer from "./layout/Pointer";
 
 export default function Main(props) {
   const [currentLetter, setCurrentLetter] = useState(0);

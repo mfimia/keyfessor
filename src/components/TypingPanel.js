@@ -1,6 +1,6 @@
-import Keyboard from './Keyboard'
-import Tracker from './Tracker'
-import { StopWatch } from './StopWatch'
+import Keyboard from "./layout/Keyboard";
+import Tracker from "./layout/Tracker";
+import { StopWatch } from "./utils/StopWatch";
 
 export default function TypingPanel({
   lettersArray,
@@ -12,7 +12,7 @@ export default function TypingPanel({
   handleStartTimer,
   wordsPerMinute,
   accuracy,
-  isRunning
+  isRunning,
 }) {
   return (
     <>
@@ -36,5 +36,5 @@ export default function TypingPanel({
         accuracy={accuracy}
       />
     </>
-  )
+  );
 }
