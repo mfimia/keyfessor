@@ -1,7 +1,7 @@
 import { useContext, Fragment } from "react";
 import MainContext from "../context/main/MainContext";
 import Text from "./Text";
-import TypingPanel from "./TypingPanel";
+import Tracker from "./layout/Tracker";
 import EndScreen from "./layout/EndScreen";
 import Results from "./layout/Results";
 
@@ -13,7 +13,7 @@ export default function Main() {
     <Fragment>
       <Results />
       <Text />
-      <TypingPanel />
+      <Tracker />
       {endGame.current && <EndScreen />}
     </Fragment>
   );

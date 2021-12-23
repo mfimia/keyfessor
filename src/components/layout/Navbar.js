@@ -35,7 +35,8 @@ export default function Navbar() {
         alignItems: "center",
         justifyContent: "space-between",
         height: 60,
-        px: 4,
+        pl: 6,
+        pr: 12,
         backgroundColor: "transparent",
         boxShadow: "none",
       }}
