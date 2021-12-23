@@ -43,7 +43,7 @@ export default function Navbar() {
     >
       <Box
         component="img"
-        sx={{ height: 36, width: 36 }}
+        sx={{ height: 36, width: 30 }}
         src={darkMode ? lightLogo : darkLogo}
       ></Box>
 
