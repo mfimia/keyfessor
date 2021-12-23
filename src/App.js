@@ -1,12 +1,10 @@
 import { useState, useEffect, useContext } from "react";
 import DarkContext from "./context/darkMode/DarkContext";
-import "./main.css";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
+import ScreenAlert from "./components/layout/modals/ScreenAlert";
 import Navbar from "./components/layout/Navbar";
 import Main from "./components/Main";
 import DarkMode from "./components/DarkMode";
+import "./main.css";
 import "./css/screenSizes.css";
 
 const enoughFirstSize = window.innerWidth >= 900 && window.innerHeight >= 400;
@@ -45,20 +43,6 @@ export default function App() {
       <DarkMode />
     </div>
   ) : (
-    <Modal
-      open={true}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-    >
-      <Box sx={style}>
-        <Typography id="modal-modal-title" variant="h6" component="h2">
-          Your screen is too small!
-        </Typography>
-        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          Your screen is too small to use Keyfessor. Please use a larger screen
-          or expand your current one.
-        </Typography>
-      </Box>
-    </Modal>
+    <ScreenAlert />
   );
 }
