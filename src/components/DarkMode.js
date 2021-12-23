@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import DarkContext from "../context/darkMode/DarkContext";
 
 export default function DarkMode() {

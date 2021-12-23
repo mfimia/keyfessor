@@ -1,4 +1,4 @@
-import { useState, Fragment } from "react";
+import { useState, Fragment, useContext } from "react";
 import DarkContext from "../../context/darkMode/DarkContext";
 import lightLogo from "../../assets/keyfessor-white-logo.png";
 import darkLogo from "../../assets/keyfessor-black-logo.png";
