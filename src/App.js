@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import DarkContext from "./context/darkMode/DarkContext";
 import "./main.css";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -24,12 +25,10 @@ const style = {
 };
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState(false);
   const [wideScreen, setWideScreen] = useState(true);
 
-  const toggleDarkMode = () => {
-    setDarkMode((prev) => !prev);
-  };
+  const darkContext = useContext(DarkContext);
+  const { darkMode } = darkContext;
 
   const handleResize = () => {
     window.innerWidth <= 900 || window.innerHeight <= 450
@@ -39,12 +38,11 @@ export default function App() {
 
   useEffect(() => window.addEventListener("resize", handleResize), []);
 
-  const appClass = darkMode ? "App-dark" : "App";
   return enoughFirstSize && wideScreen ? (
-    <div className={appClass}>
-      <Navbar darkMode={darkMode} />
-      <Main darkMode={darkMode} />
-      <DarkMode toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+    <div className={darkMode ? "App-dark" : "App"}>
+      <Navbar />
+      <Main />
+      <DarkMode />
     </div>
   ) : (
     <Modal

@@ -1,4 +1,5 @@
-import { useContext } from "react";
+import { useContext, Fragment } from "react";
+import DarkContext from "../context/darkMode/DarkContext";
 import MainContext from "../context/main/MainContext";
 import StartScreen from "./layout/StartScreen";
 import Text from "./Text";
@@ -7,21 +8,23 @@ import ProgressBar from "./layout/ProgressBar";
 import EndScreen from "./layout/EndScreen";
 import Pointer from "./layout/Pointer";
 
-export default function Main(props) {
+export default function Main() {
   const mainContext = useContext(MainContext);
   const { firstLetter, endGame, isRunning } = mainContext;
 
+  const darkContext = useContext(DarkContext);
+  const { darkMode } = darkContext;
+
   return (
-    <>
+    <Fragment>
       {!isRunning ? (
-        <StartScreen darkMode={props.darkMode}>
+        <StartScreen>
           <div
             id="start--text"
-            className={props.darkMode ? "start--typing--dark" : "start--typing"}
+            className={darkMode ? "start--typing--dark" : "start--typing"}
           >
             <p>
-              Type "{firstLetter}" <Pointer darkMode={props.darkMode} /> to
-              start
+              Type "{firstLetter}" <Pointer /> to start
             </p>
           </div>
         </StartScreen>
@@ -32,6 +35,6 @@ export default function Main(props) {
       <ProgressBar />
       <TypingPanel />
       {endGame.current && <EndScreen />}
-    </>
+    </Fragment>
   );
 }
