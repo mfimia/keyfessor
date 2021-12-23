@@ -9,7 +9,7 @@ import Main from "./components/Main";
 import DarkMode from "./components/DarkMode";
 import "./css/screenSizes.css";
 
-const enoughFirstSize = window.innerWidth >= 900 && window.innerHeight >= 800;
+const enoughFirstSize = window.innerWidth >= 900 && window.innerHeight >= 400;
 
 const style = {
   position: "absolute",
@@ -31,7 +31,7 @@ export default function App() {
   const { darkMode } = darkContext;
 
   const handleResize = () => {
-    window.innerWidth <= 900 || window.innerHeight <= 800
+    window.innerWidth <= 900 || window.innerHeight <= 400
       ? setWideScreen(false)
       : setWideScreen(true);
   };
