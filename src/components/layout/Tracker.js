@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import MainContext from "../../context/main/MainContext";
 import CircularProgressWithLabel from "./CircularProgressWithLabel";
+import { Box } from "@mui/material";
 import "../../css/Tracker.css";
 
 export default function Tracker() {
