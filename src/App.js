@@ -4,7 +4,6 @@ import ScreenAlert from "./components/layout/modals/ScreenAlert";
 import Navbar from "./components/layout/Navbar";
 import Main from "./components/Main";
 import DarkMode from "./components/DarkMode";
-import Keyboard from "./components/layout/Keyboard";
 import "./main.css";
 import "./css/screenSizes.css";
 
@@ -33,7 +32,6 @@ export default function App() {
       <Fragment>
         <Navbar />
         <Main />
-        <Keyboard />
         <DarkMode />
       </Fragment>
     </div>

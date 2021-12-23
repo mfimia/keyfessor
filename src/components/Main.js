@@ -3,7 +3,9 @@ import MainContext from "../context/main/MainContext";
 import Text from "./Text";
 import Tracker from "./layout/Tracker";
 import EndScreen from "./layout/EndScreen";
+import Keyboard from "./layout/Keyboard";
 import Results from "./layout/Results";
+import { Box } from "@mui/material";
 
 export default function Main() {
   const mainContext = useContext(MainContext);
@@ -11,9 +13,26 @@ export default function Main() {
 
   return (
     <Fragment>
-      <Results />
-      <Text />
-      <Tracker />
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "space-around",
+          border: 1,
+        }}
+        component="div"
+      >
+        <Results />
+        <Box
+          sx={{
+            height: "90vh",
+          }}
+        >
+          <Text />
+          <Keyboard />
+        </Box>
+        <Tracker />
+      </Box>
       {endGame.current && <EndScreen />}
     </Fragment>
   );

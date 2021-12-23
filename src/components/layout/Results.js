@@ -1,6 +1,7 @@
 import "../../css/StopWatch.css";
 import MainContext from "../../context/main/MainContext";
 import { Fragment, useContext } from "react";
+import { Box } from "@mui/system";
 
 const Results = () => {
   const mainContext = useContext(MainContext);
@@ -17,9 +18,16 @@ const Results = () => {
 
   return (
     <Fragment>
-      {laps.length !== 0 && (
-        <fieldset className="stopwatch--results">{timeResults}</fieldset>
-      )}
+      <Box
+        sx={{
+          width: "25vw",
+          height: "70vh",
+        }}
+      >
+        {laps.length !== 0 && (
+          <fieldset className="stopwatch--results">{timeResults}</fieldset>
+        )}
+      </Box>
     </Fragment>
   );
 };

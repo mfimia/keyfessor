@@ -34,7 +34,7 @@ export default function Navbar() {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        height: 60,
+        height: "10vh",
         pl: 6,
         pr: 12,
         backgroundColor: "transparent",
@@ -49,7 +49,7 @@ export default function Navbar() {
       ></Box>
 
       {!isRunning && (
-        <Typography fontSize={22} sx={{ position: "relative " }}>
+        <Typography fontSize={22} sx={{ position: "relative", ml: 6 }}>
           Type "{firstLetter}" <Pointer /> to start
         </Typography>
       )}

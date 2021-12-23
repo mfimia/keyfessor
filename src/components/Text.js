@@ -1,3 +1,4 @@
+import { Box, Typography } from "@mui/material";
 import { useContext } from "react";
 import MainContext from "../context/main/MainContext";
 import "../css/Text.css";
@@ -11,20 +12,29 @@ export default function Text() {
     .split("")
     .map((letter, index) => {
       return (
-        <span
+        <Typography
+          component="span"
           key={index}
-          className={
-            index >= currentLetter ? "remaining--letter" : "previous--letter"
-          }
+          sx={{ fontFamily: "Special Elite" }}
+          color={index >= currentLetter ? "green" : "pink"}
         >
           {letter}
-        </span>
+        </Typography>
       );
     });
 
   return (
-    <div className="text">
-      <p>{dynamicText}</p>
-    </div>
+    <Box
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        width: "50vw",
+        height: "50vh",
+        alignItems: "center",
+        border: 1,
+      }}
+    >
+      <Typography component="p">{dynamicText}</Typography>
+    </Box>
   );
 }

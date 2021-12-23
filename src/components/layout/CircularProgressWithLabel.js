@@ -1,11 +1,14 @@
-import { Fragment } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
 const CircularProgressWithLabel = ({ value, unit, percentage, title }) => {
   return (
-    <Fragment>
+    <Box
+      sx={{
+        border: 1,
+      }}
+    >
       <Typography component="h5" variant="h6">
         {title}:
       </Typography>
@@ -46,7 +49,7 @@ const CircularProgressWithLabel = ({ value, unit, percentage, title }) => {
           </Typography>
         </Box>
       </Box>
-    </Fragment>
+    </Box>
   );
 };
 

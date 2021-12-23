@@ -2,6 +2,7 @@ import { useContext } from "react";
 import MainContext from "../../context/main/MainContext";
 import CircularProgressWithLabel from "./CircularProgressWithLabel";
 import "../../css/Tracker.css";
+import { Box } from "@mui/material";
 
 export default function Tracker() {
   const mainContext = useContext(MainContext);
@@ -11,7 +12,17 @@ export default function Tracker() {
   const speedPercentage = (wordsPerMinute / 75) * 100;
 
   return (
-    <div className="tracker--panel--container">
+    <Box
+      sx={{
+        width: "25vw",
+        border: 1,
+        height: "70vh",
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
+        justifyContent: "space-around",
+      }}
+    >
       <CircularProgressWithLabel title="Typed" value={amountTyped} unit="%" />
       <CircularProgressWithLabel
         title="Speed"
@@ -20,6 +31,6 @@ export default function Tracker() {
         percentage={speedPercentage}
       />
       <CircularProgressWithLabel title="Accuracy" value={accuracy} unit="%" />
-    </div>
+    </Box>
   );
 }
