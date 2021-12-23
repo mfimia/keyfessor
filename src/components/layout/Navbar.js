@@ -1,11 +1,19 @@
-import { useState, Fragment, useContext } from "react";
+import { useState, useContext } from "react";
+import Pointer from "./Pointer";
+import { StopWatch } from "../utils/StopWatch";
+import MainContext from "../../context/main/MainContext";
 import DarkContext from "../../context/darkMode/DarkContext";
 import lightLogo from "../../assets/keyfessor-white-logo.png";
 import darkLogo from "../../assets/keyfessor-black-logo.png";
 import useEventListener from "@use-it/event-listener";
+import { Box } from "@mui/system";
+import { Typography, AppBar } from "@mui/material";
 import "../../css/Navbar.css";
 
 export default function Navbar() {
+  const mainContext = useContext(MainContext);
+  const { firstLetter, isRunning } = mainContext;
+
   const darkContext = useContext(DarkContext);
   const { darkMode } = darkContext;
 
@@ -20,12 +28,31 @@ export default function Navbar() {
   useEventListener("keydown", startApp);
 
   return (
-    <Fragment>
-      <img
-        alt="Keyfessor logo"
-        className="header--logo"
+    <AppBar
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        height: 60,
+        px: 4,
+        backgroundColor: "transparent",
+        boxShadow: "none",
+      }}
+      position="static"
+    >
+      <Box
+        component="img"
+        sx={{ height: 36, width: 36 }}
         src={darkMode ? lightLogo : darkLogo}
-      />
-    </Fragment>
+      ></Box>
+
+      {!isRunning && (
+        <Typography fontSize={22} sx={{ position: "relative " }}>
+          Type "{firstLetter}" <Pointer /> to start
+        </Typography>
+      )}
+      <StopWatch />
+    </AppBar>
   );
 }

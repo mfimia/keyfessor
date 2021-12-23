@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, Fragment } from "react";
 import DarkContext from "./context/darkMode/DarkContext";
 import ScreenAlert from "./components/layout/modals/ScreenAlert";
 import Navbar from "./components/layout/Navbar";
@@ -7,7 +7,7 @@ import DarkMode from "./components/DarkMode";
 import "./main.css";
 import "./css/screenSizes.css";
 
-let enoughFirstSize = window.innerWidth >= 900 && window.innerHeight >= 400;
+let enoughFirstSize = window.innerWidth >= 800 && window.innerHeight >= 400;
 
 export default function App() {
   const [wideScreen, setWideScreen] = useState(true);
@@ -16,7 +16,7 @@ export default function App() {
   const { darkMode } = darkContext;
 
   const handleResize = () => {
-    window.innerWidth <= 900 || window.innerHeight <= 400
+    window.innerWidth <= 800 || window.innerHeight <= 400
       ? setWideScreen(false)
       : setWideScreen(true);
   };
@@ -29,9 +29,11 @@ export default function App() {
 
   return enoughFirstSize && wideScreen ? (
     <div className={darkMode ? "App-dark" : "App"}>
-      <Navbar />
-      <Main />
-      <DarkMode />
+      <Fragment>
+        <Navbar />
+        <Main />
+        <DarkMode />
+      </Fragment>
     </div>
   ) : (
     <ScreenAlert />
