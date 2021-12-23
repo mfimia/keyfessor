@@ -7,7 +7,7 @@ import DarkMode from "./components/DarkMode";
 import "./main.css";
 import "./css/screenSizes.css";
 
-const enoughFirstSize = window.innerWidth >= 900 && window.innerHeight >= 400;
+let enoughFirstSize = window.innerWidth >= 900 && window.innerHeight >= 400;
 
 export default function App() {
   const [wideScreen, setWideScreen] = useState(true);
@@ -20,6 +20,10 @@ export default function App() {
       ? setWideScreen(false)
       : setWideScreen(true);
   };
+
+  useEffect(() => {
+    if (wideScreen) enoughFirstSize = true;
+  }, [wideScreen]);
 
   useEffect(() => window.addEventListener("resize", handleResize), []);
 
