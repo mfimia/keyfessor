@@ -51,7 +51,7 @@ export default function Keyboard() {
       if (activeKey) {
         highlightKeyAsIncorrect(activeKey);
       }
-      playSound(errorSound);
+      // playSound(errorSound);
       addError();
     }
   }
