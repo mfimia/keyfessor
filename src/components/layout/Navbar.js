@@ -34,7 +34,6 @@ export default function Navbar() {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        height: "10vh",
         pl: 6,
         pr: 12,
         backgroundColor: "transparent",

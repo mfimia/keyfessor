@@ -14,7 +14,7 @@ export default function Tracker() {
   return (
     <Box
       sx={{
-        width: "25vw",
+        width: "22vw",
         border: 1,
         height: "70vh",
         display: "flex",

@@ -20,7 +20,7 @@ const Results = () => {
     <Fragment>
       <Box
         sx={{
-          width: "25vw",
+          width: "22vw",
           height: "70vh",
         }}
       >

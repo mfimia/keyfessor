@@ -29,7 +29,7 @@ export default function Text() {
         display: "flex",
         flexWrap: "wrap",
         width: "50vw",
-        height: "50vh",
+        height: "60%",
         alignItems: "center",
         border: 1,
       }}
