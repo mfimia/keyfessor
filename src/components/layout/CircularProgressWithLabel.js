@@ -4,11 +4,7 @@ import Box from "@mui/material/Box";
 
 const CircularProgressWithLabel = ({ value, unit, percentage, title }) => {
   return (
-    <Box
-      sx={{
-        border: 1,
-      }}
-    >
+    <Box>
       <Typography component="h5" variant="h6">
         {title}:
       </Typography>

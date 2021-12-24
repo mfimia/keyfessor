@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import MainContext from "../../context/main/MainContext";
 import CircularProgressWithLabel from "./CircularProgressWithLabel";
-import "../../css/Tracker.css";
 import { Box } from "@mui/material";
 
 export default function Tracker() {
@@ -15,12 +14,13 @@ export default function Tracker() {
     <Box
       sx={{
         width: "22vw",
-        border: 1,
         height: "70vh",
         display: "flex",
-        alignItems: "center",
+        alignItems: "flex-end",
         flexDirection: "column",
         justifyContent: "space-around",
+        mt: 2,
+        mr: 4,
       }}
     >
       <CircularProgressWithLabel title="Typed" value={amountTyped} unit="%" />

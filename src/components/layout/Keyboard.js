@@ -98,7 +98,6 @@ export default function Keyboard() {
         flexDirection: "column",
         justifyContent: "center",
         margin: "auto",
-        border: 1,
       }}
     >
       {keyboard}

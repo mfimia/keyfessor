@@ -28,10 +28,9 @@ export default function Text() {
       sx={{
         display: "flex",
         flexWrap: "wrap",
-        width: "50vw",
+        width: "45vw",
         height: "60%",
         alignItems: "center",
-        border: 1,
       }}
     >
       <Typography component="p">{dynamicText}</Typography>

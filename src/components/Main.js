@@ -18,7 +18,6 @@ export default function Main() {
           display: "flex",
           alignItems: "flex-start",
           justifyContent: "space-around",
-          border: 1,
         }}
         component="div"
       >
