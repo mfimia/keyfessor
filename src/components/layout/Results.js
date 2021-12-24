@@ -1,7 +1,15 @@
 import "../../css/StopWatch.css";
 import MainContext from "../../context/main/MainContext";
-import { Fragment, useContext } from "react";
+import { useContext } from "react";
 import { Box } from "@mui/system";
+import List from "@mui/material/List";
+import StarIcon from "@mui/icons-material/Star";
+import {
+  ListItemIcon,
+  Typography,
+  ListItemText,
+  ListItem,
+} from "@mui/material";
 
 const Results = () => {
   const mainContext = useContext(MainContext);
@@ -9,26 +17,41 @@ const Results = () => {
 
   const timeResults = laps.map((lap, index) => {
     return (
-      <div className="stopwatch--lap" key={index}>
-        <b>T{index + 1}</b>: {Math.floor(lap.time)}s | {lap.speed} WPM |{" "}
-        {lap.accuracy}%
-      </div>
+      <ListItem alignItems="flex-start" key={index}>
+        <ListItemIcon>
+          <StarIcon />
+        </ListItemIcon>
+        <ListItemText
+          primary={
+            <Typography>
+              <Typography component="span" fontWeight={700}>
+                T{index + 1}
+              </Typography>
+              : {Math.floor(lap.time)}s | {lap.speed} WPM | {lap.accuracy}%
+            </Typography>
+          }
+          secondary="Excellent!"
+        />
+      </ListItem>
     );
   });
 
   return (
-    <Fragment>
-      <Box
-        sx={{
-          width: "22vw",
-          height: "70vh",
-        }}
-      >
-        {laps.length !== 0 && (
-          <fieldset className="stopwatch--results">{timeResults}</fieldset>
-        )}
-      </Box>
-    </Fragment>
+    <Box
+      sx={{
+        width: "22vw",
+        height: "70vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        mt: 4,
+        mr: 6,
+      }}
+    >
+      {laps.length !== 0 && (
+        <List sx={{ overflow: "auto" }}>{timeResults}</List>
+      )}
+    </Box>
   );
 };
 
