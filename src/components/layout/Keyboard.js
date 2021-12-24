@@ -1,6 +1,6 @@
+import { useContext } from "react";
 import MainContext from "../../context/main/MainContext";
 import useEventListener from "@use-it/event-listener";
-import { useContext } from "react";
 import keys from "../data/keys";
 import keyChecker from "../utils/keyChecker";
 import sound from "../../assets/Mechanical-Keyboard-single-button-presses-4.mp3";
