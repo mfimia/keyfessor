@@ -2,7 +2,7 @@ import { useContext } from "react";
 import MainContext from "../../context/main/MainContext";
 import "../../css/EndScreen.css";
 
-export default function EndScreen() {
+const EndScreen = () => {
   const mainContext = useContext(MainContext);
   const { resetGame, laps } = mainContext;
 
@@ -29,4 +29,6 @@ export default function EndScreen() {
       </button>
     </div>
   );
-}
+};
+
+export default EndScreen;
