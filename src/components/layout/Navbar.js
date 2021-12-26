@@ -15,7 +15,7 @@ export default function Navbar() {
   const { firstLetter, isRunning } = mainContext;
 
   const darkContext = useContext(DarkContext);
-  const { darkMode } = darkContext;
+  const { mode } = darkContext;
 
   const [onLoad, setOnLoad] = useState(true);
 
@@ -37,6 +37,7 @@ export default function Navbar() {
         pl: 6,
         pr: 12,
         backgroundColor: "transparent",
+        backgroundImage: "none",
         boxShadow: "none",
       }}
       position="static"
@@ -44,11 +45,15 @@ export default function Navbar() {
       <Box
         component="img"
         sx={{ height: 36, width: 30 }}
-        src={darkMode ? lightLogo : darkLogo}
+        src={mode === "dark" ? lightLogo : darkLogo}
       ></Box>
 
       {!isRunning && (
-        <Typography fontSize={22} sx={{ position: "relative", ml: 6 }}>
+        <Typography
+          color="text.primary"
+          fontSize={22}
+          sx={{ position: "relative", ml: 6 }}
+        >
           Type "{firstLetter}" <Pointer /> to start
         </Typography>
       )}
