@@ -6,7 +6,6 @@ const CircularProgressWithLabel = ({ value, unit, percentage, title }) => {
   return (
     <Box
       sx={{
-        border: 1,
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-end",
