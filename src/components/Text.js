@@ -19,7 +19,8 @@ export default function Text() {
             fontSize: 26,
             lineHeight: 2.4,
           }}
-          color={index >= currentLetter ? "green" : "pink"}
+          color={index >= currentLetter ? "text.secondary" : "text.primary"}
+          fontWeight={index >= currentLetter ? 300 : 700}
         >
           {letter}
         </Typography>
