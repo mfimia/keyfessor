@@ -8,7 +8,11 @@ export const StopWatch = () => {
   const { elapsedTime } = mainContext;
 
   return (
-    <Typography fontSize={26} sx={{ display: "inline-block" }}>
+    <Typography
+      color="text.primary"
+      fontSize={26}
+      sx={{ display: "inline-block" }}
+    >
       {elapsedTime}
     </Typography>
   );
