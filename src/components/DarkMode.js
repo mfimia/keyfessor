@@ -3,15 +3,15 @@ import DarkContext from "../context/darkMode/DarkContext";
 
 export default function DarkMode() {
   const darkContext = useContext(DarkContext);
-  const { darkMode, toggleDarkMode } = darkContext;
+  const { mode, toggleDarkMode } = darkContext;
 
   return (
     <div className="toggler--container">
       <div
         onClick={toggleDarkMode}
-        className={darkMode ? "light--toggler" : "dark--toggler"}
+        className={mode === "light" ? "light--toggler" : "dark--toggler"}
       >
-        {darkMode ? (
+        {mode === "dark" ? (
           <i className="far fa-sun"></i>
         ) : (
           <i className="far fa-moon"></i>
