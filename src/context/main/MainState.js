@@ -94,7 +94,13 @@ const MainState = (props) => {
 
   // Moves the text down as user types
   useEffect(() => {
-    mainText.current.scrollTop += 5;
+    const moveBlock = (mainText.current.scrollHeight / 100) * 10;
+    if (currentLetter % 35 === 0) {
+      mainText.current.scrollTop += moveBlock;
+      if (currentLetter === 0) {
+        mainText.current.scrollTop = 0;
+      }
+    }
   }, [currentLetter]);
 
   const addError = () => {
@@ -133,11 +139,11 @@ const MainState = (props) => {
         wordsPerMinute,
         accuracy,
         isRunning,
+        mainText,
         addError,
         advanceText,
         handleStartTimer,
         resetGame,
-        mainText,
       }}
     >
       {props.children}
