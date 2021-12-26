@@ -20,6 +20,8 @@ const MainState = (props) => {
 
   const firstLetter = displayedText.texts[displayedText.currentText][0];
 
+  const mainText = useRef();
+
   const {
     isRunning,
     addLap,
@@ -52,11 +54,9 @@ const MainState = (props) => {
 
   const advanceText = () => {
     setCurrentLetter((prev) => {
-      return prev === 5 ? newText() : prev + 1;
+      return prev === lettersArray.totalLetters - 1 ? newText() : prev + 1;
     });
   };
-
-  // lettersArray.totalLetters - 1
 
   const newText = () => {
     if (displayedText.currentText === textArray.length - 1) {
@@ -91,6 +91,11 @@ const MainState = (props) => {
       });
     }
   }, [displayedText.texts, displayedText.currentText]);
+
+  // Moves the text down as user types
+  useEffect(() => {
+    mainText.current.scrollTop += 5;
+  }, [currentLetter]);
 
   const addError = () => {
     setLettersArray((prev) => {
@@ -132,6 +137,7 @@ const MainState = (props) => {
         advanceText,
         handleStartTimer,
         resetGame,
+        mainText,
       }}
     >
       {props.children}
