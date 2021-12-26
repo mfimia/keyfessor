@@ -1,13 +1,21 @@
 import DarkContext from "./DarkContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const DarkState = (props) => {
-  const [darkMode, setDarkMode] = useState(false);
+  const darkPref = JSON.parse(localStorage.getItem("darkModePref-keyfessor"));
 
-  const toggleDarkMode = () => setDarkMode((prev) => !prev);
+  const [mode, setMode] = useState(darkPref || "light");
+
+  const toggleDarkMode = () => {
+    setMode((prev) => (prev === "light" ? "dark" : "light"));
+  };
+
+  useEffect(() => {
+    localStorage.setItem("darkModePref-keyfessor", JSON.stringify(mode));
+  }, [mode]);
 
   return (
-    <DarkContext.Provider value={{ darkMode, toggleDarkMode }}>
+    <DarkContext.Provider value={{ mode, toggleDarkMode }}>
       {props.children}
     </DarkContext.Provider>
   );
