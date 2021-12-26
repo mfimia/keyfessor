@@ -7,7 +7,7 @@ const path =
 
 export default function Pointer() {
   const darkContext = useContext(DarkContext);
-  const { darkMode } = darkContext;
+  const { mode } = darkContext;
 
   return (
     <svg
@@ -18,7 +18,7 @@ export default function Pointer() {
       viewBox="0 0 203.079 203.079"
       className="point"
     >
-      <path fill={darkMode ? "white" : "black"} d={path} />
+      <path fill={mode === "dark" ? "white" : "black"} d={path} />
     </svg>
   );
 }
