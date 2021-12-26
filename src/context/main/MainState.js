@@ -95,7 +95,7 @@ const MainState = (props) => {
   // If it's possible, scrolls the text down as user types
   useEffect(() => {
     const moveBlock = (mainText.current.scrollHeight / 100) * 10;
-    if (currentLetter % 40 === 0) {
+    if (currentLetter % 50 === 0) {
       mainText.current.scrollTop += moveBlock;
       if (currentLetter === 0) {
         mainText.current.scrollTop = 0;
