@@ -5,8 +5,7 @@ import "../css/Text.css";
 
 export default function Text() {
   const mainContext = useContext(MainContext);
-  const { displayedText, currentLetter } = mainContext;
-  console.log(displayedText);
+  const { displayedText, currentLetter, mainText } = mainContext;
 
   const dynamicText = displayedText.texts[displayedText.currentText]
     .split("")
@@ -15,7 +14,11 @@ export default function Text() {
         <Typography
           component="span"
           key={index}
-          sx={{ fontFamily: "Special Elite" }}
+          sx={{
+            fontFamily: "Special Elite",
+            fontSize: 26,
+            lineHeight: 2.4,
+          }}
           color={index >= currentLetter ? "green" : "pink"}
         >
           {letter}
@@ -25,12 +28,15 @@ export default function Text() {
 
   return (
     <Box
+      ref={mainText}
       sx={{
         display: "flex",
         flexWrap: "wrap",
         width: "45vw",
         height: "60%",
         alignItems: "center",
+        pt: 4,
+        overflow: "hidden",
       }}
     >
       <Typography component="p">{dynamicText}</Typography>
