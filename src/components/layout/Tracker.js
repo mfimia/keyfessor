@@ -13,13 +13,20 @@ export default function Tracker() {
   return (
     <Box
       sx={{
-        width: "22vw",
-        height: "70vh",
+        width: {
+          xs: "12vw",
+          lg: "20vw",
+        },
+        height: {
+          xs: "50vh",
+        },
         display: "flex",
         alignItems: "flex-end",
         flexDirection: "column",
         justifyContent: "space-around",
-        mt: 2,
+        mt: {
+          xs: 12,
+        },
         mr: 4,
       }}
     >
