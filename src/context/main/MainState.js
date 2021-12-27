@@ -20,6 +20,8 @@ const MainState = (props) => {
 
   const firstLetter = displayedText.texts[displayedText.currentText][0];
 
+  const mainText = useRef();
+
   const {
     isRunning,
     addLap,
@@ -90,6 +92,17 @@ const MainState = (props) => {
     }
   }, [displayedText.texts, displayedText.currentText]);
 
+  // If it's possible, scrolls the text down as user types
+  useEffect(() => {
+    const moveBlock = (mainText.current.scrollHeight / 100) * 10;
+    if (currentLetter % 50 === 0) {
+      mainText.current.scrollTop += moveBlock;
+      if (currentLetter === 0) {
+        mainText.current.scrollTop = 0;
+      }
+    }
+  }, [currentLetter]);
+
   const addError = () => {
     setLettersArray((prev) => {
       return {
@@ -126,6 +139,7 @@ const MainState = (props) => {
         wordsPerMinute,
         accuracy,
         isRunning,
+        mainText,
         addError,
         advanceText,
         handleStartTimer,

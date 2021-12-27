@@ -1,30 +1,46 @@
+import { Box, Typography } from "@mui/material";
 import { useContext } from "react";
 import MainContext from "../context/main/MainContext";
 import "../css/Text.css";
 
 export default function Text() {
   const mainContext = useContext(MainContext);
-  const { displayedText, currentLetter } = mainContext;
-  console.log(displayedText);
+  const { displayedText, currentLetter, mainText } = mainContext;
 
   const dynamicText = displayedText.texts[displayedText.currentText]
     .split("")
     .map((letter, index) => {
       return (
-        <span
+        <Typography
+          component="span"
           key={index}
-          className={
-            index >= currentLetter ? "remaining--letter" : "previous--letter"
-          }
+          sx={{
+            fontFamily: "Special Elite",
+            fontSize: 26,
+            lineHeight: 2.4,
+          }}
+          color={index >= currentLetter ? "text.secondary" : "primary"}
+          fontWeight={index >= currentLetter ? 300 : 700}
         >
           {letter}
-        </span>
+        </Typography>
       );
     });
 
   return (
-    <div className="text">
-      <p>{dynamicText}</p>
-    </div>
+    <Box
+      ref={mainText}
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        width: "45vw",
+        height: "60%",
+        alignItems: "center",
+        pt: 4,
+        overflow: "hidden",
+      }}
+    >
+      <Typography component="p">{dynamicText}</Typography>
+    </Box>
   );
 }

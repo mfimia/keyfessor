@@ -1,26 +1,19 @@
 import "../../css/StopWatch.css";
 import MainContext from "../../context/main/MainContext";
 import { useContext } from "react";
+import { Typography } from "@mui/material";
 
 export const StopWatch = () => {
   const mainContext = useContext(MainContext);
-  const { elapsedTime, laps } = mainContext;
-
-  const timeResults = laps.map((lap, index) => {
-    return (
-      <div className="stopwatch--lap" key={index}>
-        <b>T{index + 1}</b>: {Math.floor(lap.time)}s | {lap.speed} WPM |{" "}
-        {lap.accuracy}%
-      </div>
-    );
-  });
+  const { elapsedTime } = mainContext;
 
   return (
-    <>
-      <div className="stopwatch">{elapsedTime}</div>
-      {laps.length !== 0 && (
-        <fieldset className="stopwatch--results">{timeResults}</fieldset>
-      )}
-    </>
+    <Typography
+      color="text.primary"
+      fontSize={26}
+      sx={{ display: "inline-block" }}
+    >
+      {elapsedTime}
+    </Typography>
   );
 };

@@ -27,17 +27,17 @@
   transform: scale(1.1);
 }
 
-.keyboard--top--row {
-  position: absolute;
-  top: 0;
-}
-.keyboard--mid--row {
-  position: absolute;
-  top: 25%;
-}
+.keyboard--top--row,
+.keyboard--mid--row,
 .keyboard--bot--row {
-  position: absolute;
-  top: 50%;
+  display: block;
+  width: 100%;
+}
+
+.spacebar--row {
+  display: block;
+  width: 160px;
+  margin: 0 auto;
 }
 
 .keyboard--container {
@@ -47,12 +47,6 @@
   justify-content: center;
   min-width: 70%;
   position: relative;
-}
-
-.spacebar--row {
-  position: absolute;
-  top: 75%;
-  width: 160px;
 }
 
 .spacebar {

@@ -1,27 +1,36 @@
 import { useContext } from "react";
 import MainContext from "../../context/main/MainContext";
-import "../../css/Tracker.css";
+import CircularProgressWithLabel from "./CircularProgressWithLabel";
+import { Box } from "@mui/material";
 
 export default function Tracker() {
   const mainContext = useContext(MainContext);
   const { lettersArray, currentLetter, wordsPerMinute, accuracy } = mainContext;
 
+  const amountTyped = (currentLetter / lettersArray.totalLetters) * 100;
+  const speedPercentage = (wordsPerMinute / 75) * 100;
+
   return (
-    <div className="tracker--panel--container">
-      <div className="speed--panel">
-        Typed: <br />
-        <span className="panel--metric">
-          {currentLetter}/{lettersArray.totalLetters}
-        </span>
-      </div>
-      <div className="speed--panel">
-        Speed: <br />
-        <span className="panel--metric">{wordsPerMinute} WPM</span>
-      </div>
-      <div className="accuracy--panel">
-        Accuracy: <br />
-        <span className="panel--metric">{accuracy}%</span>
-      </div>
-    </div>
+    <Box
+      sx={{
+        width: "22vw",
+        height: "70vh",
+        display: "flex",
+        alignItems: "flex-end",
+        flexDirection: "column",
+        justifyContent: "space-around",
+        mt: 2,
+        mr: 4,
+      }}
+    >
+      <CircularProgressWithLabel title="Typed" value={amountTyped} unit="%" />
+      <CircularProgressWithLabel
+        title="Speed"
+        value={wordsPerMinute}
+        unit="WPM"
+        percentage={speedPercentage}
+      />
+      <CircularProgressWithLabel title="Accuracy" value={accuracy} unit="%" />
+    </Box>
   );
 }

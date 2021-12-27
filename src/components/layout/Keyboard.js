@@ -6,6 +6,7 @@ import keyChecker from "../utils/keyChecker";
 import sound from "../../assets/Mechanical-Keyboard-single-button-presses-4.mp3";
 import error from "../../assets/mixkit-electric-fence-buzzing-2967.wav";
 import "../../css/Keyboard.css";
+import { Box } from "@mui/material";
 const keySound = new Audio(sound);
 const errorSound = new Audio(error);
 errorSound.volume = 0.15;
@@ -51,7 +52,7 @@ export default function Keyboard() {
       if (activeKey) {
         highlightKeyAsIncorrect(activeKey);
       }
-      playSound(errorSound);
+      // playSound(errorSound);
       addError();
     }
   }
@@ -67,24 +68,39 @@ export default function Keyboard() {
 
   const keyboard = keys.map((row, index) => {
     return (
-      <div className={row.className} key={index}>
+      <Box component="div" className={row.className} key={index}>
         {row.keys.map((rowKey, keyIndex) => {
           return (
-            <span
+            <Box
+              component="span"
               id={rowKey}
               className={rowKey === "spacebar" ? "spacebar" : "keyboard--key"}
               key={keyIndex}
             >
               {rowKey === "spacebar" ? "-" : rowKey.toUpperCase()}
-            </span>
+            </Box>
           );
         })}
-      </div>
+      </Box>
     );
   });
 
   useEventListener("keypress", handleKeyPress);
   useEventListener("keyup", handleKeyUp);
 
-  return <div className="keyboard--container">{keyboard}</div>;
+  return (
+    <Box
+      component="div"
+      sx={{
+        height: "40%",
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        margin: "auto",
+      }}
+    >
+      {keyboard}
+    </Box>
+  );
 }

@@ -1,39 +1,37 @@
 import { useContext, Fragment } from "react";
-import DarkContext from "../context/darkMode/DarkContext";
 import MainContext from "../context/main/MainContext";
-import StartScreen from "./layout/StartScreen";
 import Text from "./Text";
-import TypingPanel from "./TypingPanel";
-import ProgressBar from "./layout/ProgressBar";
+import Tracker from "./layout/Tracker";
 import EndScreen from "./layout/EndScreen";
-import Pointer from "./layout/Pointer";
+import Keyboard from "./layout/Keyboard";
+import Results from "./layout/Results";
+import { Box } from "@mui/material";
 
 export default function Main() {
   const mainContext = useContext(MainContext);
-  const { firstLetter, endGame, isRunning } = mainContext;
-
-  const darkContext = useContext(DarkContext);
-  const { darkMode } = darkContext;
+  const { endGame } = mainContext;
 
   return (
     <Fragment>
-      {!isRunning ? (
-        <StartScreen>
-          <div
-            id="start--text"
-            className={darkMode ? "start--typing--dark" : "start--typing"}
-          >
-            <p>
-              Type "{firstLetter}" <Pointer /> to start
-            </p>
-          </div>
-        </StartScreen>
-      ) : (
-        ""
-      )}
-      <Text />
-      <ProgressBar />
-      <TypingPanel />
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "space-around",
+        }}
+        component="div"
+      >
+        <Results />
+        <Box
+          sx={{
+            height: "90vh",
+          }}
+        >
+          <Text />
+          <Keyboard />
+        </Box>
+        <Tracker />
+      </Box>
       {endGame.current && <EndScreen />}
     </Fragment>
   );
