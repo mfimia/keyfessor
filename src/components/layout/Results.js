@@ -17,20 +17,68 @@ const Results = () => {
 
   const timeResults = laps.map((lap, index) => {
     return (
-      <ListItem alignItems="flex-start" key={index}>
-        <ListItemIcon>
-          <StarIcon />
+      <ListItem sx={{ p: 0 }} alignItems="flex-start" key={index}>
+        <ListItemIcon
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <StarIcon
+            sx={{
+              fontSize: {
+                xs: 16,
+                md: 20,
+                lg: 22,
+                xl: 28,
+              },
+            }}
+          />
         </ListItemIcon>
         <ListItemText
           primary={
-            <Typography>
-              <Typography component="span" fontWeight={700}>
+            <Typography
+              sx={{
+                fontSize: {
+                  xs: 12,
+                  md: 14,
+                  lg: 16,
+                  xl: 20,
+                },
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: {
+                    xs: 12,
+                    md: 14,
+                    lg: 16,
+                    xl: 20,
+                  },
+                }}
+                component="span"
+                fontWeight={700}
+              >
                 T{index + 1}
               </Typography>
               : {Math.floor(lap.time)}s | {lap.speed} WPM | {lap.accuracy}%
             </Typography>
           }
-          secondary="Excellent!"
+          secondary={
+            <Typography
+              sx={{
+                fontSize: {
+                  xs: 12,
+                  md: 14,
+                  lg: 16,
+                  xl: 20,
+                },
+              }}
+              color="text.secondary"
+            >
+              Excellent!
+            </Typography>
+          }
         />
       </ListItem>
     );
@@ -39,13 +87,19 @@ const Results = () => {
   return (
     <Box
       sx={{
-        width: "22vw",
+        width: {
+          xs: "24vw",
+        },
         height: "70vh",
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
-        mt: 4,
-        mr: 6,
+        mt: {
+          xs: 4,
+          lg: 6,
+        },
+        mr: 4,
+        border: 1,
       }}
     >
       {laps.length !== 0 && (
