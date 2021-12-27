@@ -11,12 +11,31 @@ const CircularProgressWithLabel = ({ value, unit, percentage, title }) => {
         alignItems: "flex-end",
       }}
     >
-      <Typography component="h5" variant="h6">
+      <Typography
+        sx={{
+          fontSize: {
+            lg: 28,
+            xl: 32,
+          },
+        }}
+        component="h5"
+        variant="h6"
+      >
         {title}:
       </Typography>
-      <Box sx={{ position: "relative", display: "inline-flex" }}>
+      <Box
+        sx={{
+          position: "relative",
+          display: "inline-flex",
+          width: {
+            xs: 64,
+            lg: 80,
+            xl: 100,
+          },
+        }}
+      >
         <CircularProgress
-          size={64}
+          size={"100%"}
           variant="determinate"
           value={percentage ? percentage : value}
         />
@@ -37,10 +56,37 @@ const CircularProgressWithLabel = ({ value, unit, percentage, title }) => {
             variant="caption"
             component="div"
             color="text.secondary"
+            sx={{
+              fontSize: {
+                xs: 20,
+                lg: 24,
+                xl: 28,
+              },
+            }}
           >
             {unit === "WPM" ? (
-              <Typography fontSize={10} component="span">
-                <Typography fontSize={20} component="span">
+              <Typography
+                fontSize={10}
+                sx={{
+                  fontSize: {
+                    xs: 10,
+                    lg: 12,
+                    xl: 14,
+                  },
+                }}
+                component="span"
+              >
+                <Typography
+                  fontSize={20}
+                  sx={{
+                    fontSize: {
+                      xs: 20,
+                      lg: 24,
+                      xl: 28,
+                    },
+                  }}
+                  component="span"
+                >
                   {value !== Infinity || NaN ? Math.round(value) : 0}
                 </Typography>{" "}
                 WPM
