@@ -33,7 +33,10 @@ export default function Text() {
       sx={{
         display: "flex",
         flexWrap: "wrap",
-        width: "45vw",
+        width: {
+          xs: "50vw",
+          lg: "45vw",
+        },
         height: "60%",
         alignItems: "center",
         pt: 4,
