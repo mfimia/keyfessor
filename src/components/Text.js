@@ -1,7 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { useContext } from "react";
 import MainContext from "../context/main/MainContext";
-import "../css/Text.css";
 
 export default function Text() {
   const mainContext = useContext(MainContext);

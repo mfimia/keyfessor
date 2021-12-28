@@ -8,7 +8,6 @@ import darkLogo from "../../assets/keyfessor-black-logo.png";
 import useEventListener from "@use-it/event-listener";
 import { Box } from "@mui/system";
 import { Typography, AppBar } from "@mui/material";
-import "../../css/Navbar.css";
 
 export default function Navbar() {
   const mainContext = useContext(MainContext);
