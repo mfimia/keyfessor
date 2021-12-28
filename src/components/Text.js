@@ -14,7 +14,7 @@ export default function Text() {
           component="span"
           key={index}
           sx={{
-            fontFamily: "Special Elite",
+            fontFamily: "Cutive",
             fontSize: {
               xs: 26,
               xl: 32,
@@ -45,7 +45,9 @@ export default function Text() {
         overflow: "hidden",
       }}
     >
-      <Typography component="p">{dynamicText}</Typography>
+      <Typography textAlign="center" component="p">
+        {dynamicText}
+      </Typography>
     </Box>
   );
 }
