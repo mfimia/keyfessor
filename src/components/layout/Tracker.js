@@ -5,7 +5,8 @@ import { Box } from "@mui/material";
 
 export default function Tracker() {
   const mainContext = useContext(MainContext);
-  const { lettersArray, currentLetter, wordsPerMinute, accuracy } = mainContext;
+  const { lettersArray, currentLetter, wordsPerMinute, accuracy, isRunning } =
+    mainContext;
 
   const amountTyped = (currentLetter / lettersArray.totalLetters) * 100;
   const speedPercentage = (wordsPerMinute / 75) * 100;
@@ -37,7 +38,11 @@ export default function Tracker() {
         unit="WPM"
         percentage={speedPercentage}
       />
-      <CircularProgressWithLabel title="Accuracy" value={accuracy} unit="%" />
+      <CircularProgressWithLabel
+        title="Accuracy"
+        value={isRunning ? accuracy : 0}
+        unit="%"
+      />
     </Box>
   );
 }
