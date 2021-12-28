@@ -31,7 +31,7 @@
 .keyboard--mid--row,
 .keyboard--bot--row {
   display: block;
-  width: 100%;
+  margin: 0 auto;
 }
 
 .spacebar--row {
