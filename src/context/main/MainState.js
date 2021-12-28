@@ -24,10 +24,10 @@ const MainState = (props) => {
 
   const {
     isRunning,
+    elapsedTime,
+    laps,
     addLap,
     stopTimer,
-    laps,
-    elapsedTime,
     startTimer,
     resetTimer,
     resetLaps,

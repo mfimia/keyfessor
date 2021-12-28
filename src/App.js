@@ -1,10 +1,10 @@
-import { useState, useEffect, useContext, Fragment, useMemo } from "react";
+import { useState, useEffect, useContext, Fragment } from "react";
 import DarkContext from "./context/darkMode/DarkContext";
 import ScreenAlert from "./components/layout/modals/ScreenAlert";
 import Navbar from "./components/layout/Navbar";
 import Main from "./components/Main";
 import DarkMode from "./components/DarkMode";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import "./main.css";
 import "./css/screenSizes.css";
@@ -16,15 +16,7 @@ export default function App() {
 
   const darkContext = useContext(DarkContext);
 
-  const { mode } = darkContext;
-
-  const theme = useMemo(
-    () =>
-      createTheme({
-        palette: { mode },
-      }),
-    [mode]
-  );
+  const { mode, theme } = darkContext;
 
   const handleResize = () => {
     window.innerWidth <= 800 || window.innerHeight <= 400

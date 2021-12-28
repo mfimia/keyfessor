@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import calculateResults from "./calculateResults";
 
 export const useTimer = () => {
   const [isRunning, setIsRunning] = useState(false);
@@ -33,8 +34,25 @@ export const useStopwatch = () => {
   };
 
   const handleAddLap = (wpm, acc) => {
+    const results = calculateResults(wpm, acc);
     isRunning &&
-      setLaps([...laps, { time: elapsedTime, speed: wpm, accuracy: acc }]);
+      setLaps([
+        ...laps,
+        {
+          time: elapsedTime,
+          speed: wpm,
+          accuracy: acc,
+          results: {
+            speedResult: results.speedResult,
+            accuracyResult: results.accuracyResult,
+            overview: {
+              sentence: results.overview.sentence,
+              rating: results.overview.rating,
+              color: results.overview.color,
+            },
+          },
+        },
+      ]);
   };
 
   return {
