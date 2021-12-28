@@ -109,7 +109,10 @@ const Results = () => {
           xs: 4,
           lg: 6,
         },
-        mr: 2,
+        ml: {
+          xs: 2,
+          xl: 4,
+        },
       }}
     >
       {laps.length !== 0 && (
