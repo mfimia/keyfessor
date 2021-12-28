@@ -16,7 +16,10 @@ export default function Text() {
           key={index}
           sx={{
             fontFamily: "Special Elite",
-            fontSize: 26,
+            fontSize: {
+              xs: 26,
+              xl: 32,
+            },
             lineHeight: 2.4,
           }}
           color={index >= currentLetter ? "text.secondary" : "primary"}
