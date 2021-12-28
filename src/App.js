@@ -9,7 +9,7 @@ import { CssBaseline } from "@mui/material";
 import "./main.css";
 import "./css/screenSizes.css";
 
-let enoughFirstSize = window.innerWidth >= 800 && window.innerHeight >= 400;
+let enoughFirstSize = window.innerWidth >= 800 && window.innerHeight >= 510;
 
 export default function App() {
   const [wideScreen, setWideScreen] = useState(true);
@@ -19,7 +19,7 @@ export default function App() {
   const { mode, theme } = darkContext;
 
   const handleResize = () => {
-    window.innerWidth <= 800 || window.innerHeight <= 400
+    window.innerWidth <= 800 || window.innerHeight <= 510
       ? setWideScreen(false)
       : setWideScreen(true);
   };

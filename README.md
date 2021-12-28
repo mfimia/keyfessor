@@ -13,5 +13,5 @@
 ### Requirements:
 
 - QWERTY keyboard
-- Minimum screen width: 625px
-- Minimum screen height: 800px
+- Minimum screen width: 800px
+- Minimum screen height: 510px
