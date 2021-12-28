@@ -4,80 +4,91 @@ import { useContext } from "react";
 import { Box } from "@mui/system";
 import List from "@mui/material/List";
 import StarIcon from "@mui/icons-material/Star";
-import {
-  ListItemIcon,
-  Typography,
-  ListItemText,
-  ListItem,
-} from "@mui/material";
+import Rating from "@mui/material/Rating";
+
+import { Typography, ListItemText, ListItem } from "@mui/material";
+
+const iconStyle = {
+  fontSize: {
+    xs: "16px",
+    md: "20px",
+    lg: "22px",
+    xl: "28px",
+  },
+  color: "goldenrod",
+  p: 0,
+};
+
+const fontBreakpoints = {
+  xs: "12px",
+  md: "14px",
+  lg: "16px",
+  xl: "20px",
+};
 
 const Results = () => {
   const mainContext = useContext(MainContext);
+
   const { laps } = mainContext;
 
   const timeResults = laps.map((lap, index) => {
+    const { speed, accuracy, results } = lap;
+    const { speedResult, accuracyResult, overview } = results;
+    const { sentence, rating } = overview;
+
     return (
-      <ListItem sx={{ p: 0 }} alignItems="flex-start" key={index}>
-        <ListItemIcon
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <StarIcon
-            sx={{
-              fontSize: {
-                xs: 16,
-                md: 20,
-                lg: 22,
-                xl: 28,
-              },
-            }}
-          />
-        </ListItemIcon>
+      <ListItem sx={{ p: 0, mb: 1 }} alignItems="flex-start" key={index}>
         <ListItemText
           primary={
-            <Typography
-              sx={{
-                fontSize: {
-                  xs: 12,
-                  md: 14,
-                  lg: 16,
-                  xl: 20,
-                },
-              }}
-            >
+            <Typography sx={{ fontSize: fontBreakpoints }}>
               <Typography
-                sx={{
-                  fontSize: {
-                    xs: 12,
-                    md: 14,
-                    lg: 16,
-                    xl: 20,
-                  },
-                }}
+                sx={{ fontSize: fontBreakpoints }}
                 component="span"
                 fontWeight={700}
               >
                 T{index + 1}
+              </Typography>{" "}
+              -{" "}
+              <Typography
+                sx={{ fontSize: fontBreakpoints, color: speedResult.color }}
+                component="span"
+              >
+                {speed} WPM
+              </Typography>{" "}
+              |{" "}
+              <Typography
+                sx={{ fontSize: fontBreakpoints, color: accuracyResult.color }}
+                component="span"
+              >
+                {accuracy}%
               </Typography>
-              : {Math.floor(lap.time)}s | {lap.speed} WPM | {lap.accuracy}%
             </Typography>
           }
           secondary={
-            <Typography
+            <Box
+              component="p"
               sx={{
-                fontSize: {
-                  xs: 12,
-                  md: 14,
-                  lg: 16,
-                  xl: 20,
-                },
+                display: "flex",
+                alignItems: "center",
               }}
-              color="text.secondary"
             >
-              Excellent!
-            </Typography>
+              <Box component="span" sx={{ mr: 1 }}>
+                <Typography
+                  sx={{ fontSize: fontBreakpoints }}
+                  color={overview.color}
+                >
+                  {sentence}
+                </Typography>
+              </Box>
+              <Rating
+                sx={iconStyle}
+                precision={0.5}
+                name="Result-overview"
+                value={rating}
+                readOnly
+                emptyIcon={<StarIcon style={{ opacity: 0.1 }} sx={iconStyle} />}
+              />
+            </Box>
           }
         />
       </ListItem>
@@ -89,6 +100,7 @@ const Results = () => {
       sx={{
         width: {
           xs: "24vw",
+          xl: "22vw",
         },
         height: "70vh",
         display: "flex",
@@ -98,8 +110,7 @@ const Results = () => {
           xs: 4,
           lg: 6,
         },
-        mr: 4,
-        border: 1,
+        mr: 2,
       }}
     >
       {laps.length !== 0 && (
