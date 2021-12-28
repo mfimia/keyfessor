@@ -7,6 +7,7 @@ import sound from "../../assets/Mechanical-Keyboard-single-button-presses-4.mp3"
 import error from "../../assets/mixkit-electric-fence-buzzing-2967.wav";
 import "../../css/Keyboard.css";
 import { Box } from "@mui/material";
+
 const keySound = new Audio(sound);
 const errorSound = new Audio(error);
 errorSound.volume = 0.15;
