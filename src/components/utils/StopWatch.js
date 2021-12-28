@@ -10,8 +10,13 @@ export const StopWatch = () => {
   return (
     <Typography
       color="text.primary"
-      fontSize={26}
-      sx={{ display: "inline-block" }}
+      sx={{
+        display: "inline-block",
+        fontSize: {
+          xs: 26,
+          xl: 30,
+        },
+      }}
     >
       {elapsedTime}
     </Typography>
