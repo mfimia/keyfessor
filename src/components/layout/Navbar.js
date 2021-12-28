@@ -52,7 +52,14 @@ export default function Navbar() {
         <Typography
           color="text.primary"
           fontSize={22}
-          sx={{ position: "relative", ml: 6 }}
+          sx={{
+            position: "relative",
+            ml: 6,
+            fontSize: {
+              xs: 22,
+              xl: 28,
+            },
+          }}
         >
           Type "{firstLetter}" <Pointer /> to start
         </Typography>
