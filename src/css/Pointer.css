@@ -2,7 +2,7 @@
   position: absolute;
   width: 1.5rem;
   bottom: 0;
-  left: 50%;
+  left: 47%;
 }
 
 .point {
@@ -11,9 +11,9 @@
 
 @keyframes point {
   from {
-    transform: translate(-100%, 130%);
+    transform: translate(-100%, 140%);
   }
   to {
-    transform: translate(-100%, 100%);
+    transform: translate(-100%, 110%);
   }
 }
