@@ -38,6 +38,7 @@ export default function Navbar() {
         backgroundColor: "transparent",
         backgroundImage: "none",
         boxShadow: "none",
+        height: "10vh",
       }}
       position="static"
     >
@@ -51,6 +52,7 @@ export default function Navbar() {
         <Typography
           color="text.primary"
           fontSize={22}
+          fontFamily="Righteous"
           sx={{
             position: "relative",
             ml: 6,
