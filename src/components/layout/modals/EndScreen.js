@@ -73,7 +73,6 @@ const EndScreen = () => {
     title,
     overallRating,
   } = finalScore;
-  console.log(typeof title);
 
   const { scoreTitle, titleColor } = title;
 
