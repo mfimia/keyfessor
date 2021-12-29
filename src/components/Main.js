@@ -2,7 +2,7 @@ import { useContext, Fragment } from "react";
 import MainContext from "../context/main/MainContext";
 import Text from "./Text";
 import Tracker from "./layout/Tracker";
-import EndScreen from "./layout/EndScreen";
+import EndScreen from "./layout/modals/EndScreen";
 import Keyboard from "./layout/Keyboard";
 import Results from "./layout/Results";
 import { Box } from "@mui/material";
