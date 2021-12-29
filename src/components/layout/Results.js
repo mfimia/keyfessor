@@ -36,10 +36,15 @@ const Results = () => {
     const { sentence, rating } = overview;
 
     return (
-      <ListItem sx={{ p: 0, mb: 1 }} alignItems="flex-start" key={index}>
+      <ListItem
+        component="div"
+        sx={{ p: 0, mb: 1 }}
+        alignItems="flex-start"
+        key={index}
+      >
         <ListItemText
           primary={
-            <Typography sx={{ fontSize: fontBreakpoints }}>
+            <Typography component="div" sx={{ fontSize: fontBreakpoints }}>
               <Typography
                 sx={{ fontSize: fontBreakpoints }}
                 component="span"
@@ -64,30 +69,35 @@ const Results = () => {
             </Typography>
           }
           secondary={
-            <Box
-              component="p"
-              sx={{
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <Box component="span" sx={{ mr: 1 }}>
-                <Typography
-                  sx={{ fontSize: fontBreakpoints }}
-                  color={overview.color}
-                >
-                  {sentence}
-                </Typography>
+            <Typography component="div">
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                }}
+                component="div"
+              >
+                <Box component="span" sx={{ mr: 1 }}>
+                  <Typography
+                    component="span"
+                    sx={{ fontSize: fontBreakpoints }}
+                    color={overview.color}
+                  >
+                    {sentence}
+                  </Typography>
+                </Box>
+                <Rating
+                  sx={iconStyle}
+                  precision={0.5}
+                  name="Result-overview"
+                  value={rating}
+                  readOnly
+                  emptyIcon={
+                    <StarIcon style={{ opacity: 0.1 }} sx={iconStyle} />
+                  }
+                />
               </Box>
-              <Rating
-                sx={iconStyle}
-                precision={0.5}
-                name="Result-overview"
-                value={rating}
-                readOnly
-                emptyIcon={<StarIcon style={{ opacity: 0.1 }} sx={iconStyle} />}
-              />
-            </Box>
+            </Typography>
           }
         />
       </ListItem>
@@ -96,6 +106,7 @@ const Results = () => {
 
   return (
     <Box
+      component="div"
       sx={{
         width: {
           xs: "24vw",
