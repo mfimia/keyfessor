@@ -7,25 +7,25 @@ const calculateResults = (speed, accuracy) => {
 
 const calculateSpeedResult = (speed) => {
   if (speed >= 50) {
-    return { grade: "great", color: "info.light" };
+    return { grade: "great", color: "info.light", indRating: 10 };
   } else if (speed >= 40) {
-    return { grade: "good", color: "success.light" };
+    return { grade: "good", color: "success.light", indRating: 7.5 };
   } else if (speed >= 30) {
-    return { grade: "average", color: "warning.light" };
+    return { grade: "average", color: "warning.light", indRating: 5 };
   } else {
-    return { grade: "bad", color: "error.light" };
+    return { grade: "bad", color: "error.light", indRating: 0 };
   }
 };
 
 const calculateAccuracyResult = (accuracy) => {
   if (accuracy >= 95) {
-    return { grade: "great", color: "info.light" };
+    return { grade: "great", color: "info.light", indRating: 10 };
   } else if (accuracy >= 90) {
-    return { grade: "good", color: "success.light" };
+    return { grade: "good", color: "success.light", indRating: 7.5 };
   } else if (accuracy >= 80) {
-    return { grade: "average", color: "warning.light" };
+    return { grade: "average", color: "warning.light", indRating: 5 };
   } else {
-    return { grade: "bad", color: "error.light" };
+    return { grade: "bad", color: "error.light", indRating: 0 };
   }
 };
 
@@ -33,22 +33,22 @@ const calculateOverview = (speedResult, accuracyResult) => {
   if (speedResult.grade === "great") {
     switch (accuracyResult.grade) {
       case "great":
-        return { sentence: "Maestro", rating: 5, color: "info.light" };
+        return { sentence: "Excellent!", rating: 5, color: "info.light" };
       case "good":
         return {
-          sentence: "Fast & Furious!",
+          sentence: "Amazing speed!",
           rating: 4.5,
           color: "success.light",
         };
       case "average":
         return {
-          sentence: "Speedy Gonzalez",
+          sentence: "Great pace!",
           rating: 4,
           color: "success.light",
         };
       default:
         return {
-          sentence: "Fast and Reckless",
+          sentence: "Quick and dirty",
           rating: 3.5,
           color: "warning.light",
         };
@@ -56,14 +56,18 @@ const calculateOverview = (speedResult, accuracyResult) => {
   } else if (speedResult.grade === "good") {
     switch (accuracyResult.grade) {
       case "great":
-        return { sentence: "Mr. Grammar", rating: 4.5, color: "success.light" };
+        return {
+          sentence: "Amazing precision!",
+          rating: 4.5,
+          color: "success.light",
+        };
       case "good":
-        return { sentence: "Nice typing!", rating: 4, color: "success.light" };
+        return { sentence: "Great typing!", rating: 4, color: "success.light" };
       case "average":
         return { sentence: "Good pace", rating: 3.5, color: "warning.light" };
       default:
         return {
-          sentence: "Reckless typing",
+          sentence: "Reckless",
           rating: 3,
           color: "warning.light",
         };
@@ -72,7 +76,7 @@ const calculateOverview = (speedResult, accuracyResult) => {
     switch (accuracyResult.grade) {
       case "great":
         return {
-          sentence: "Slow and Steady",
+          sentence: "Not bad!",
           rating: 4,
           color: "success.light",
         };
@@ -91,20 +95,20 @@ const calculateOverview = (speedResult, accuracyResult) => {
     switch (accuracyResult.grade) {
       case "great":
         return {
-          sentence: "Mr. Two Fingers",
+          sentence: "Slow",
           rating: 3.5,
           color: "warning.light",
         };
       case "good":
-        return { sentence: "Too slow!", rating: 3, color: "warning.light" };
+        return { sentence: "Sloooow", rating: 3, color: "warning.light" };
       case "average":
         return {
-          sentence: "Drunk and typing",
+          sentence: "Try to focus",
           rating: 2,
           color: "error.light",
         };
       default:
-        return { sentence: "Wth you doing?!", rating: 1, color: "error.light" };
+        return { sentence: "OMG", rating: 1, color: "error.light" };
     }
   }
 };
