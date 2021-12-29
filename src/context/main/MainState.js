@@ -3,6 +3,9 @@ import { useState, useRef, useEffect } from "react";
 import { useStopwatch } from "../../components/utils/timerHook";
 import textArray from "../../components/data/textData";
 
+let totalAppLetters = 0;
+textArray.forEach((text) => text.split("").forEach(() => totalAppLetters++));
+
 const MainState = (props) => {
   const [currentLetter, setCurrentLetter] = useState(0);
   const [displayedText, setDisplayedText] = useState({
@@ -54,13 +57,16 @@ const MainState = (props) => {
 
   const advanceText = () => {
     setCurrentLetter((prev) => {
-      return prev === lettersArray.totalLetters - 1 ? newText() : prev + 1;
+      return prev === 15 ? newText() : prev + 1;
     });
   };
-
+  // lettersArray.totalLetters - 1
   const newText = () => {
     if (displayedText.currentText === textArray.length - 1) {
       endGame.current = true;
+      addLap(wordsPerMinute, accuracy);
+      resetTimer();
+      setCurrentLetter(0);
     } else {
       setDisplayedText((previousText) => {
         return {
@@ -140,6 +146,7 @@ const MainState = (props) => {
         accuracy,
         isRunning,
         mainText,
+        totalAppLetters,
         addError,
         advanceText,
         handleStartTimer,
