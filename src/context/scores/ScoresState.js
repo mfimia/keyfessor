@@ -7,7 +7,7 @@ const ScoresState = (props) => {
   // Get Scores from database
   const getScores = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/scores/");
+      const res = await fetch("/api/scores/");
       const scores = await res.json();
       setScores(scores);
     } catch (error) {
@@ -30,7 +30,7 @@ const ScoresState = (props) => {
       nickname,
     };
     try {
-      const res = await fetch("http://localhost:5000/api/scores/", {
+      const res = await fetch("/api/scores/", {
         method: "POST",
         body: JSON.stringify(score),
         headers: {
