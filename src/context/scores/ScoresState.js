@@ -8,15 +8,15 @@ const ScoresState = (props) => {
 
   const [scores, setScores] = useState(null);
 
-  const url =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:5000"
-      : process.env.REACT_APP_PUBLIC_URL;
+  // const url =
+  //   process.env.NODE_ENV === "development"
+  //     ? "http://localhost:5000"
+  //     : process.env.REACT_APP_PUBLIC_URL;
 
   // Get Scores from database
   const getScores = async () => {
     try {
-      const res = await fetch(`${url}/api/scores/`);
+      const res = await fetch(`api/scores/`);
       const scores = await res.json();
       setScores(scores);
     } catch (error) {
@@ -39,16 +39,13 @@ const ScoresState = (props) => {
       nickname,
     };
     try {
-      const res = await fetch(
-        `${process.env.REACT_APP_PUBLIC_URL}/api/scores/`,
-        {
-          method: "POST",
-          body: JSON.stringify(score),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await fetch(`api/scores/`, {
+        method: "POST",
+        body: JSON.stringify(score),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       const data = await res.json();
       console.log(data);
     } catch (error) {
