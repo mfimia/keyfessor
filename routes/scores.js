@@ -1,9 +1,10 @@
 const { MongoClient } = require("mongodb");
 const express = require("express");
 const router = express.Router();
+const uriString = require("./uriString");
 
-const uri =
-  "mongodb+srv://mfimia:aT..Su8yi9AXWKz@mfimia.seces.mongodb.net/Keyfessor?retryWrites=true&w=majority";
+const uri = uriString;
+
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
