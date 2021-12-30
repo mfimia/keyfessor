@@ -1,0 +1,75 @@
+@media screen and (max-width: 1300px) {
+  .stopwatch--lap {
+    font-size: large;
+  }
+  .remaining--letter,
+  .previous--letter {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (max-width: 1135px) {
+  .remaining--letter,
+  .previous--letter {
+    font-size: 1.4rem;
+  }
+  .text {
+    width: 44%;
+  }
+  .text p {
+    line-height: 1.2;
+  }
+}
+
+@media screen and (max-width: 1043px) {
+  .stopwatch {
+    font-size: 1.4rem;
+  }
+  .panel--metric {
+    font-size: 1.3rem;
+  }
+
+  .end--results {
+    width: 55%;
+  }
+  .text p {
+    line-height: 1;
+  }
+}
+
+@media screen and (max-width: 925px) {
+  .stopwatch--lap {
+    font-size: medium;
+  }
+  .stopwatch--results {
+    padding: 10px;
+  }
+
+  .keyboard--key {
+    height: 30px;
+    width: 30px;
+    font-size: 0.8rem;
+  }
+
+  .spacebar {
+    height: 30px;
+  }
+
+  .keyboard--container {
+    height: 160px;
+  }
+}
+
+@media screen and (max-height: 810px) {
+  .text > p {
+    line-height: 1;
+  }
+
+  .tracker--panel--container {
+    height: 50%;
+  }
+
+  .speed--panel,
+  .accuracy--panel {
+    height: 20%;
+  }
+}

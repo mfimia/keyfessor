@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Source+Code+Pro:wght@200&display=swap");
+
+.keyboard--key,
+.spacebar {
+  display: inline-block;
+  padding: 10px;
+  margin: 2px;
+  border-radius: 5px;
+  min-width: 40.5px;
+  text-align: center;
+  font-weight: 500;
+  background-color: var(--keys);
+  box-shadow: 0px 2.98256px 7.4564px var(--keys-shadow);
+  color: var(--keys-text);
+}
+
+.active-key__correct {
+  transition: all ease;
+  border-bottom: green;
+  box-shadow: 0 0 1rem green;
+  transform: scale(1.1);
+}
+
+.active-key__wrong {
+  border-bottom: red;
+  box-shadow: 0 0 1rem red;
+  transform: scale(1.1);
+}
+
+.keyboard--top--row,
+.keyboard--mid--row,
+.keyboard--bot--row {
+  display: block;
+  margin: 0 auto;
+}
+
+.spacebar--row {
+  display: block;
+  width: 160px;
+  margin: 0 auto;
+}
+
+.keyboard--container {
+  align-items: center;
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  min-width: 70%;
+  position: relative;
+}
+
+.spacebar {
+  width: 100%;
+}
