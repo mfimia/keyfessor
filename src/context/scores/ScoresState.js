@@ -1,13 +1,19 @@
 import ScoresContext from "./ScoresContext";
 import { useState } from "react";
+const dotenv = require("dotenv");
 
 const ScoresState = (props) => {
+  // Allows us to use environment variables
+  dotenv.config();
+
   const [scores, setScores] = useState(null);
 
   // Get Scores from database
   const getScores = async () => {
     try {
-      const res = await fetch("/api/scores/");
+      const res = await fetch(
+        `${process.env.REACT_APP_PUBLIC_URL}/api/scores/`
+      );
       const scores = await res.json();
       setScores(scores);
     } catch (error) {
@@ -30,13 +36,16 @@ const ScoresState = (props) => {
       nickname,
     };
     try {
-      const res = await fetch("/api/scores/", {
-        method: "POST",
-        body: JSON.stringify(score),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await fetch(
+        `${process.env.REACT_APP_PUBLIC_URL}/api/scores/`,
+        {
+          method: "POST",
+          body: JSON.stringify(score),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const data = await res.json();
       console.log(data);
     } catch (error) {

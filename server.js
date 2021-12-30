@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 // Init Middleware
 app.use(express.json({ extended: false }));
 
-app.use("/api/scores", require("./routes/scores"));
+app.use("/api/scores/", require("./routes/scores"));
 
 // Serve static assets (React) in production
 // It checks if the environment is in production
@@ -31,5 +31,6 @@ if (process.env.NODE_ENV === "production") {
   );
 }
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

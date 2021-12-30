@@ -1,9 +1,12 @@
 const { MongoClient } = require("mongodb");
 const express = require("express");
 const router = express.Router();
-const uriString = require("./uriString");
+const dotenv = require("dotenv");
 
-const uri = uriString;
+// Allows us to use environment variables
+dotenv.config();
+
+const uri = process.env.REACT_APP_MONGO_URI;
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
