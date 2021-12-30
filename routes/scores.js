@@ -18,7 +18,6 @@ router.get("/", async (req, res) => {
     client.connect(async () => {
       const db = client.db("Keyfessor");
       const scores = await db.collection("Leaderboard").find().toArray();
-      console.log(scores);
       client.close();
       res.json(scores);
     });
@@ -34,29 +33,15 @@ router.get("/", async (req, res) => {
 // @access  Private
 router.post("/", async (req, res) => {
   try {
-    const {
-      nickname,
-      overallRating,
-      finalTotalTime,
-      averageSpeedRating,
-      averageSpeed,
-      averageTime,
-      averageAccRating,
-      averageAcc,
-      totalAppLetters,
-    } = await req.body;
+    const { nickname, overallRating, averageSpeed, averageAcc, unixDate } =
+      await req.body;
 
     const newScore = {
       nickname,
       overallRating,
-      finalTotalTime,
-      averageSpeedRating,
       averageSpeed,
-      averageTime,
-      averageAccRating,
       averageAcc,
-      totalAppLetters,
-      date: new Date(),
+      unixDate,
     };
 
     client.connect(async () => {
@@ -66,9 +51,8 @@ router.post("/", async (req, res) => {
       res.json(newScore);
     });
   } catch (err) {
-    console.log(err);
-    console.log("Error occurred");
-    client.close();
+    console.error(err.message);
+    res.status(500).send("Server Error");
   }
 });
 
