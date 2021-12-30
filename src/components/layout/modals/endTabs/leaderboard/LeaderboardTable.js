@@ -11,6 +11,7 @@ import Paper from "@mui/material/Paper";
 const LeaderboardTable = () => {
   const scoresContext = useContext(ScoresContext);
   const { scores, getScores } = scoresContext;
+
   useEffect(() => {
     getScores();
     // eslint-disable-next-line
