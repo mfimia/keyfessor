@@ -1,10 +1,8 @@
 import ScoresContext from "./ScoresContext";
 import { useState } from "react";
-const dotenv = require("dotenv");
 
 const ScoresState = (props) => {
   // Allows us to use environment variables
-  dotenv.config();
 
   const [scores, setScores] = useState(null);
 
