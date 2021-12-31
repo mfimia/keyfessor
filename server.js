@@ -1,6 +1,32 @@
+const { MongoClient } = require("mongodb");
 const express = require("express");
+const router = express.Router();
 const app = express();
 const path = require("path");
+const dotenv = require("dotenv");
+dotenv.config();
+
+const client = new MongoClient(process.env.REACT_APP_MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+// async function run() {
+//   try {
+//     // Connect the client to the server
+//     await client.connect();
+//     // Establish and verify connection
+//     await client.db("Keyfessor").command({ ping: 1 });
+//     console.log("Connected successfully to server");
+//   } catch (err) {
+//     console.log(err);
+//   }
+//   // finally {
+//   //   // Ensures that the client will close when you finish/error
+//   //   await client.close();
+//   // }
+// }
+// run().catch(console.dir);
 
 // Avoiding CORS policy errors
 app.use((req, res, next) => {
@@ -14,10 +40,56 @@ app.use((req, res, next) => {
   next();
 });
 
-// Init Middleware
-app.use(express.json({ extended: false }));
+app.use("/api/scores/", router);
+// This route allows us to get top scores
+// @route   GET api/scores
+// desc     Get top scores
+// @access  Private
+router.get("/", async (req, res) => {
+  try {
+    client.connect(async () => {
+      const db = client.db("Keyfessor");
+      const scores = await db.collection("Leaderboard").find().toArray();
+      client.close();
+      res.json(scores);
+    });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
 
-app.use("/api/scores/", require("./routes/scores"));
+// This route will allow to add a score
+// @route   POST api/score
+// desc     Add new score
+// @access  Private
+router.post("/", async (req, res) => {
+  try {
+    const { nickname, overallRating, averageSpeed, averageAcc, unixDate } =
+      await req.body;
+
+    const newScore = {
+      nickname,
+      overallRating,
+      averageSpeed,
+      averageAcc,
+      unixDate,
+    };
+
+    client.connect(async () => {
+      const db = client.db("Keyfessor");
+      await db.collection("Leaderboard").insertOne(newScore);
+      client.close();
+      res.json(newScore);
+    });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+// Init Middleware
+// app.use(express.json({ extended: false }));
 
 // Serve static assets (React) in production
 // It checks if the environment is in production
@@ -34,3 +106,5 @@ if (process.env.NODE_ENV === "production") {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+
+// module.exports = client;
