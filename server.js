@@ -40,7 +40,13 @@ app.use((req, res, next) => {
   next();
 });
 
+// Init Middleware
+// This lets us read the request in our POST request from client
+app.use(express.json({ extended: false }));
+
+// Here we declare the routes that we are using
 app.use("/api/scores/", router);
+
 // This route allows us to get top scores
 // @route   GET api/scores
 // desc     Get top scores
@@ -67,7 +73,6 @@ router.post("/", async (req, res) => {
   try {
     const { nickname, overallRating, averageSpeed, averageAcc, unixDate } =
       await req.body;
-
     const newScore = {
       nickname,
       overallRating,
@@ -87,9 +92,6 @@ router.post("/", async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
-
-// Init Middleware
-// app.use(express.json({ extended: false }));
 
 // Serve static assets (React) in production
 // It checks if the environment is in production

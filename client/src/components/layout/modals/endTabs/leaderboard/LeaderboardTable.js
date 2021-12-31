@@ -16,7 +16,7 @@ const LeaderboardTable = () => {
     getScores();
     // eslint-disable-next-line
   }, []);
-
+  //
   return (
     <TableContainer sx={{ my: 4 }} component={Paper}>
       <Table aria-label="Leaderboard table">

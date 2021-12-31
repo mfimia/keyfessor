@@ -16,7 +16,7 @@ const Leaderboard = ({ finalScore }) => {
     event.preventDefault();
     if (nickname && nickname.length >= 3 && nickname.length <= 12) {
       setNickname("");
-      setSubmitted(true);
+      setSubmitted(false);
       addScore(nickname, overallRating, averageSpeed, averageAcc);
       setTimeout(() => getScores(), 3000);
     } else {

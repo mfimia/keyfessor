@@ -37,15 +37,13 @@ const ScoresState = (props) => {
       nickname,
     };
     try {
-      const res = await fetch(`api/scores/`, {
+      fetch(`api/scores/`, {
         method: "POST",
         body: JSON.stringify(score),
         headers: {
           "Content-Type": "application/json",
         },
       });
-      const data = await res.json();
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
