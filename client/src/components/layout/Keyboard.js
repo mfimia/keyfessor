@@ -35,13 +35,17 @@ export default function Keyboard() {
     addError,
     handleStartTimer,
     isRunning,
+    endGame,
   } = mainContext;
 
   function handleKeyPress({ key }) {
     const pressedLetter = key === " " ? "spacebar" : key;
     const activeKey = document.getElementById(pressedLetter.toLowerCase());
 
-    if (keyChecker(lettersArray, currentLetter, pressedLetter)) {
+    if (
+      keyChecker(lettersArray, currentLetter, pressedLetter) &&
+      !endGame.current
+    ) {
       handleStartTimer();
       highlightKeyAsCorrect(activeKey);
       playSound(keySound);

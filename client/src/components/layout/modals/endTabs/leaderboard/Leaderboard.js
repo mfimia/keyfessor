@@ -15,11 +15,13 @@ const Leaderboard = ({ finalScore }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (nickname && nickname.length >= 3 && nickname.length <= 12) {
-      setNickname("");
       setSubmitted(true);
       addScore(nickname, overallRating, averageSpeed, averageAcc);
+      setNickname("");
       setTimeout(() => getScores(), 3000);
     } else {
+      // Open toasts conditionally based on error
+      // Eg. Too long, too short, not provided
       console.log("Add valid nickname");
     }
   };

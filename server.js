@@ -11,23 +11,6 @@ const client = new MongoClient(process.env.REACT_APP_MONGO_URI, {
   useUnifiedTopology: true,
 });
 
-// async function run() {
-//   try {
-//     // Connect the client to the server
-//     await client.connect();
-//     // Establish and verify connection
-//     await client.db("Keyfessor").command({ ping: 1 });
-//     console.log("Connected successfully to server");
-//   } catch (err) {
-//     console.log(err);
-//   }
-//   // finally {
-//   //   // Ensures that the client will close when you finish/error
-//   //   await client.close();
-//   // }
-// }
-// run().catch(console.dir);
-
 // Avoiding CORS policy errors
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
