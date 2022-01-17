@@ -8,6 +8,8 @@ Once you have completed all 10 texts (it should take you around 10 mins) Keyfess
 
 Last but not least, you will be able to see leaderboard with scores submitted by other typers and of course to submit your score and show off your typing skills.
 
+[Working version](https://morning-brushlands-04377.herokuapp.com/ "Keyfessor App")
+
 ### Features:
 
 - Speed tracking
